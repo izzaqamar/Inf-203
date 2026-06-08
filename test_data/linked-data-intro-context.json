@@ -1,0 +1,32 @@
+{
+   "@context": {
+      "example-abox": "https://www.nanotexnology.com/index.php/isson/data#",
+      "schema": "https://schema.org/"
+   },
+   "@id": "example-abox:ISSON25",
+   "@type": "schema:EducationEvent",
+   "schema:performer": [
+      {
+         "@id": "example-abox:Halliru_Ibrahim",
+         "@type": "schema:Person"
+      }, {
+         "@id": "example-abox:Argiris_Laskarakis",
+         "@type": "schema:Person"
+      }, {
+         "@id": "example-abox:Stratos_Saliakas",
+         "@type": "schema:Person"
+      }
+   ],
+   "schema:superEvent": {
+      "@id": "example-abox:NANOTEXNOLOGY_2025",
+      "@type": "schema:BusinessEvent",
+      "schema:organizer": [
+         {
+            "@id": "example-abox:Argiris_Laskarakis"
+         }, {
+            "@id": "example-abox:Stergios_Logothetidis",
+            "@type": "schema:Person"
+         }
+      ]
+   }
+}
