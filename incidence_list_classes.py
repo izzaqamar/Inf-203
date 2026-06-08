@@ -8,8 +8,8 @@ class Node:
     def __init__(self, label):
         # Each node here has a unique label (its ID in the graph)
         self.label = label
-        self.outgoing = []  # edges where this node is the source
-        self.incoming = []  # edges where this node is the target
+        self.out = []  # edges where this node is the source
+        self.inc = []  # edges where this node is the target
         self.attributes = {}  # this store literal values if required
 
     def __repr__(self):
@@ -39,7 +39,7 @@ class Graph:
         return self.nodes[label]
 
     def add_edge(self, label, source_label, target_label):
-        # Make sure both nodes exist (we create them if they do not exist)
+        # We make sure both nodes exist (we create them if they do not exist)
         source = self.add_node(source_label)
         target = self.add_node(target_label)
         edge = Edge(label, source, target)
