@@ -47,3 +47,5 @@ class Graph:
         source.outgoing.append(edge)
         target.incoming.append(edge)
         return edge
+
+#test
