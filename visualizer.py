@@ -4,6 +4,7 @@ Needs more comments
 
 
 import networkx as nx
+#pip install networkx
 import matplotlib.pyplot as plt
 from jsonLD_parser import load_jsonld
 
@@ -24,7 +25,7 @@ for edge in graph.edges:
         label=edge.label
     )
 
-pos = nx.spring_layout(G)
+pos = nx.kamada_kawai_layout(G)
 
 nx.draw(
     G,
