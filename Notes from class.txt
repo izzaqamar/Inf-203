@@ -19,3 +19,4 @@ Notes from: 09.06.2026
         Box = class
         Diamonds = relation
 
+    *No screenshots in final project
