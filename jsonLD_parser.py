@@ -1,36 +1,30 @@
-"""
-Something that can parse JSON-LD and extract relevant information from it
-Opens the JSON-LD file, extracts the data as triples, and then adds the nodes and edges to the graph.
-Returns the graph
-
-# Just found RDF-lib. It does it all. All we've coded, just better.
-# https://rdflib.readthedocs.io/en/stable/?utm_source=chatgpt.com
-
-# To be done: docstrings 
-    
-
-# Possible improvements:
-- No handeling of duplicate triples, which could lead to multiple identical edges in the graph
-- Validate / normalize the triples
-- In case that node_id becomes "none", unrelated nodes could merge
-"""
-
-
 import json
 from incidence_list_classes import Node, Edge, Graph
 
 def load_jsonld(file_path):
+    """
+    Loads a JSON-LD file, converts it into a graph and returns the graph.
+
+    Args:
+        file_path (str): The path to the JSON-LD file to be loaded.
+
+    This function:
+    - Reads the JSON-LD file
+    - Extracts triples (subject, predicate, object) from the JSON structure
+    - Builds a graph using the extracted triples
+    - Returns the constructed graph
+
+    Possible improvements:
+    - No handling of duplicate triples, which could lead to multiple identical edges in the graph
+    - Validate / normalize the triples
+    - In case that node_id becomes "none", unrelated nodes could merge
+
+    """
     # Creates a graph object
     graph = Graph()
 
     # Creates a list of facts (triples)
     triples = []
-
-
-    """
-    #Test data
-    file__path = 'test_data\\linked-data-intro-context.json'
-    """
 
     # Loads the JSON file
     with open(file_path, 'r') as f:
@@ -103,7 +97,7 @@ def load_jsonld(file_path):
 
     # Buld the graph from the triples
     for s, p, o in triples:
-        #for each triple, we add the nodes and edges to the graph
+        #for each triple, we add two nodes and one edge to the graph
         #s is the subject, p is the predicate (relationship for us normal people), o is the object
         graph.add_node(s)
         graph.add_edge(p, s, o)

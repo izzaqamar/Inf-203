@@ -5,6 +5,8 @@ From special class 05.06.2026
     Make transformations of the graph with sparkl (not quite sure)
     Extra: make a UI for the graph transformations
 
+    End goal: Use code to transform a graph out there somewhere, to something else?
+
 
 Notes from: 08.06.2026
     
