@@ -21,3 +21,20 @@ Notes from: 09.06.2026
         Box = class
         Diamonds = relation
 
+    Interview with Huanyu Li 
+        Circular Economy Ontology Network
+        Desigining an Ontology Metwork for DigitalProductPassport
+        DPP ontology - CEON ontology
+
+        Tasks for us to do? (not sure what we'll do)
+            Transofrmation between 
+            From CEON to DPP?
+            From DPPO to DPP?
+
+            Take te ontologies
+                Reconfigure them
+
+            Create a webpage to get information?
+
+            Seemed like they were a bit "off"
+
