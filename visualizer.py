@@ -8,7 +8,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from jsonLD_parser import load_jsonld
 
-graph = load_jsonld("test_data\\linked-data-intro-context.json")
+graph = load_jsonld("linked-data-intro-context.json")
 
 G = nx.DiGraph()
 
