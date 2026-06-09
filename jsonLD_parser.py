@@ -58,31 +58,45 @@ def load_jsonld(file_path):
                     triples.append((node_id, "type", value))
                     continue
                 
-                # for values
+                # case 1.1 for values
                 if isinstance(value, dict):
                     #recursivly extracts the nested dictionary
                     obj_id = value.get("@id")
-                    if obj_id:
+                    if obj_id is not None:
+                        #if @id is not present, then obj_id will get a "none" value
                         triples.append((node_id, key, obj_id))
                         extract(value, obj_id)
                     else:
                         extract(value, node_id)
+
+                # case 1.2 for lists   
                 elif isinstance(value, list):
                     for item in value:
-                        extract(item, node_id)
+
+                        if isinstance(item, dict):
+                            item_id = item.get("@id")
+
+                            if item_id is not None:
+                                #if @id is not present, then item_id will get a "none" value
+                                triples.append((node_id, key, item_id))
+                                extract(item, item_id)
+                            else:
+                                extract(item, node_id)
+                        else:
+                            triples.append((node_id, key, str(item)))
+
+                # case 1.3 for litreal values
                 else:
                     triples.append((node_id, key, str(value)))
 
             return node_id
 
-
         elif isinstance(obj, list):
-            #case 2: obj is a lsit
             for item in obj:
                 extract(item, subject)
 
         else:
-            #case 3: obj is a literal value
+            #case 3: obj is a literal values
             triples.append((subject, "value", str(obj)))
             
     # Extract data 
@@ -91,9 +105,9 @@ def load_jsonld(file_path):
     # Buld the graph from the triples
     for s, p, o in triples:
         #for each triple, we add the nodes and edges to the graph
-        #s is the subject, p is the predicate, o is the object
+        #s is the subject, p is the predicate (relationship for us normal people), o is the object
         graph.add_node(s)
-        graph.add_edge(s, p, o)
+        graph.add_edge(p, s, o)
         graph.add_node(o)
     
     #return
