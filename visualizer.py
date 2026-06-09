@@ -4,6 +4,7 @@ Needs more comments
 
 
 import networkx as nx
+#pip install networkx
 import matplotlib.pyplot as plt
 from jsonLD_parser import load_jsonld
 

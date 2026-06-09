@@ -1,0 +1,14 @@
+Notes from class
+
+From special class 05.06.2026
+    Make transformations of the graph with sparkl (not quite sure)
+    Extra: make a UI for the graph transformations
+
+
+Notes from: 08.06.2026
+    Comments should be in: docstrings 
+
+Notes from: 09.06.2026
+    Encapulation
+    
+    Using @
