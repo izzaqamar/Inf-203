@@ -1,5 +1,5 @@
 import json
-from graph_project.incidence_list_classes import Node, Edge, Graph
+from .incidence_list_classes import Node, Edge, Graph
 
 
 def load_jsonld(file_path):
