@@ -6,6 +6,9 @@ Returns the graph
 # Just found RDF-lib. It does it all. All we've coded, just better.
 # https://rdflib.readthedocs.io/en/stable/?utm_source=chatgpt.com
 
+# To be done: docstrings 
+    
+
 # Possible improvements:
 - No handeling of duplicate triples, which could lead to multiple identical edges in the graph
 - Validate / normalize the triples
