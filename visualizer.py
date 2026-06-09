@@ -1,3 +1,8 @@
+"""
+Needs more comments
+"""
+
+
 import networkx as nx
 import matplotlib.pyplot as plt
 from jsonLD_parser import load_jsonld
@@ -37,5 +42,4 @@ nx.draw_networkx_edge_labels(
 
 
 plt.show()
-
 print(list(G.edges(data=True)))

@@ -3,17 +3,13 @@ Something that can parse JSON-LD and extract relevant information from it
 Opens the JSON-LD file, extracts the data as triples, and then adds the nodes and edges to the graph.
 Returns the graph
 
-#Possible improvements:
+# Just found RDF-lib. It does it all. All we've coded, just better.
+# https://rdflib.readthedocs.io/en/stable/?utm_source=chatgpt.com
+
+# Possible improvements:
 - No handeling of duplicate triples, which could lead to multiple identical edges in the graph
 - Validate / normalize the triples
 - In case that node_id becomes "none", unrelated nodes could merge
-    Danger: 
-        #Creates a graph object
-        graph = Graph()
-
-        # Creates a list of facts (triples)
-        triples = []
-
 """
 
 
