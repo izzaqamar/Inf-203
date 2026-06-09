@@ -1,4 +1,5 @@
 Notes from class
+* too get a good grade
 
 From special class 05.06.2026
     Make transformations of the graph with sparkl (not quite sure)
@@ -6,9 +7,15 @@ From special class 05.06.2026
 
 
 Notes from: 08.06.2026
-    Comments should be in: docstrings 
+    
+    *Comments should be in: docstrings 
 
 Notes from: 09.06.2026
-    Encapulation
+    *Encapulation
     
-    Using @
+    *Using @
+
+    *Use the notation from class
+        Box = class
+        Diamonds = relation
+
