@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+src/graph_project/incidence_list_classes.py
+src/graph_project/jsonLD_parser.py
+src/graph_project.egg-info/PKG-INFO
+src/graph_project.egg-info/SOURCES.txt
+src/graph_project.egg-info/dependency_links.txt
+src/graph_project.egg-info/top_level.txt
+tests/test_run.py
