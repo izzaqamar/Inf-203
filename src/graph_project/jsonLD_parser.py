@@ -1,5 +1,6 @@
 import json
-from incidence_list_classes import Node, Edge, Graph
+from graph_project.incidence_list_classes import Node, Edge, Graph
+
 
 def load_jsonld(file_path):
     """
@@ -27,19 +28,18 @@ def load_jsonld(file_path):
     triples = []
 
     # Loads the JSON file
-    with open(file_path, 'r') as f:
+    with open(file_path, "r") as f:
         data = json.load(f)
-
 
     def extract(obj, subject=None):
         # This function extracts triples from the JSON file and adds it to the triples list.
         # It creates facts like Martin thought us from class
 
         if isinstance(obj, dict):
-            #case 1: obj is a dictionary
+            # case 1: obj is a dictionary
 
             node_id = obj.get("@id", subject)
-            #if no @id is found, we reuse parent identity
+            # if no @id is found, we reuse parent identity
 
             for key, value in obj.items():
 
@@ -50,19 +50,19 @@ def load_jsonld(file_path):
                 if key == "@type":
                     triples.append((node_id, "type", value))
                     continue
-                
+
                 # case 1.1 for values
                 if isinstance(value, dict):
-                    #recursivly extracts the nested dictionary
+                    # recursivly extracts the nested dictionary
                     obj_id = value.get("@id")
                     if obj_id is not None:
-                        #if @id is not present, then obj_id will get a "none" value
+                        # if @id is not present, then obj_id will get a "none" value
                         triples.append((node_id, key, obj_id))
                         extract(value, obj_id)
                     else:
                         extract(value, node_id)
 
-                # case 1.2 for lists   
+                # case 1.2 for lists
                 elif isinstance(value, list):
                     for item in value:
 
@@ -70,7 +70,7 @@ def load_jsonld(file_path):
                             item_id = item.get("@id")
 
                             if item_id is not None:
-                                #if @id is not present, then item_id will get a "none" value
+                                # if @id is not present, then item_id will get a "none" value
                                 triples.append((node_id, key, item_id))
                                 extract(item, item_id)
                             else:
@@ -89,19 +89,19 @@ def load_jsonld(file_path):
                 extract(item, subject)
 
         else:
-            #case 3: obj is a literal values
+            # case 3: obj is a literal values
             triples.append((subject, "value", str(obj)))
-            
-    # Extract data 
+
+    # Extract data
     extract(data)
 
     # Buld the graph from the triples
     for s, p, o in triples:
-        #for each triple, we add two nodes and one edge to the graph
-        #s is the subject, p is the predicate (relationship for us normal people), o is the object
+        # for each triple, we add two nodes and one edge to the graph
+        # s is the subject, p is the predicate (relationship for us normal people), o is the object
         graph.add_node(s)
         graph.add_edge(p, s, o)
         graph.add_node(o)
-    
-    #return
+
+    # return
     return graph
