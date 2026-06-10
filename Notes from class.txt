@@ -33,6 +33,14 @@ Notes from: 10.06.2026
             download from: https://github.com/RichZele/DPP-DPPO-CEON-Ontology-Alignment/tree/main/use-cases/window
                 Use Protege to transform file to JSON-LD
                     Check if our code reads file as intended
+    *Possible user stories: 
+        As a user, I want to be able to do just query and read output, 
+        As a user, I want to see all outgoing edges to see how things are connected
+        As a user, I want to search for paths with specific edge labels so that I can find relationships spanning multiple nodes
+        As a user, I want to provide a sequence of edge labels so that I can search for longer relationship chains
+        As a user, I want query results displayed in tabular form so that I can easily read the matching paths
+        As a user, I want empty query results to be handled gracefully so that the program does not crash when no matching paths exist
+        As a user, I want duplicate nodes to be avoided so that each entity appears only once in the graph
 
 ###
 Code for task 5
