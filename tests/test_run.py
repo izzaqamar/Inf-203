@@ -1,4 +1,5 @@
-from jsonLD_parser import load_jsonld
+from graph_project.jsonLD_parser import load_jsonld
+import os
 
 
 def main():
@@ -12,7 +13,9 @@ def main():
     - Prints all edges in the graph
     - Displays a sample node with its outgoing and incoming edges"""
 
-    file_path = "linked-data-intro-context.json"  #  JSON-LD file
+    file_path = os.path.join(
+        os.path.dirname(__file__), "linked-data-intro-context.json"
+    )  #  JSON-LD file
 
     graph = load_jsonld(file_path)
 
