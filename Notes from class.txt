@@ -22,3 +22,72 @@ Notes from: 09.06.2026
         Diamonds = relation
 
     *No screenshots in final project
+
+Notes from: 10.06.2026
+    *Everyone needs at least one responsibility for user story. Can share some stories, but at least 1 alone per person
+    *Needs query to be bi-directional
+    *Use getters and setters
+    *Load into Protige, save as JSON-LD, see if our code works as intended
+    *Task for tomorrow: 
+        Implement querying for paths with the output given in tabular form to standard output.
+            download from: https://github.com/RichZele/DPP-DPPO-CEON-Ontology-Alignment/tree/main/use-cases/window
+                Use Protege to transform file to JSON-LD
+                    Check if our code reads file as intended
+
+###
+Code for task 5
+i'll make docstring and implement to code of group agree to this
+
+class Node:
+    def __init__(self, label):
+        self._label = label
+        self._incoming = []
+        self._outgoing = []
+
+    @property
+    def label(self):
+        return self._label
+
+    @label.setter
+    def label(self, value):
+        self._label = value
+
+    @property
+    def incoming(self):
+        return self._incoming
+
+    @property
+    def outgoing(self):
+        return self._outgoing
+        
+###
+Code for task 6
+i'll make docstring and (try to) implement to code if group agrees
+
+def query_path_forward(self, labels):
+
+    results = []
+
+    def search(node, label_index, path):
+
+        if label_index == len(labels):
+            results.append(path)
+            return
+
+        wanted_label = labels[label_index]
+
+        for edge in node.outgoing:
+
+            if edge.label == wanted_label:
+
+                search(
+                    edge.target,
+                    label_index + 1,
+                    path + [edge.target]
+                )
+
+    for start_node in self.nodes:
+        search(start_node, 0, [start_node])
+
+    return results
+###
