@@ -44,11 +44,26 @@ Additionally we created a quick program that visualizes the graph using the Kama
 \section{Task 8}
 
 \section{Task 9}
-Possible additional things:
-- Shortest path between two nodes
-- Validate input data (see if anything is wonky)
-- Edges?
-- Visualize edges?
+Possible functionalities to implement:
+
+Path & Traversal Queries
+-Shortest path between two nodes
+-Find all neighbors of a node (1 hop out, or N hops out)
+-Find all paths between two nodes
+
+Lookup & Filter Queries
+-Find all nodes of a given type — e.g. all schema:Event nodes
+-Filter by attribute value — e.g. find nodes where schema:name = "Oslo"
+-Count how many edges of a given label exist in the graph
+-List all unique edge labels in the graph
+-Find nodes with no outgoing / no incoming edges (dead ends or roots)
+
+Validation
+-Check for duplicate triples — already flagged in your load_jsonld comments
+-Verify referential integrity — every edge target actually exists as a proper node
+-Check required properties — does every Event node have a schema:name?
+-Find orphan nodes — nodes with zero connections
+-Detect cycles — is there a loop in the graph?
 
 \section{Task 10}
 
