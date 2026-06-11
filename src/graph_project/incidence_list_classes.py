@@ -1,7 +1,7 @@
 # Inf-203 Project
 # Group:04
 # Worksheet:1
-# Task: 03
+# Task: 03 + 05
 
 
 class Node:
@@ -18,10 +18,30 @@ class Node:
     """
 
     def __init__(self, label):
-        self.label = label
-        self.outgoing = []
-        self.incoming = []
-        self.attributes = {}
+        self._label = label
+        self._outgoing = []
+        self._incoming = []
+        self._attributes = {}
+
+    @property
+    def label(self):
+        return self._label
+
+    @label.setter
+    def label(self, value):
+        self._label = value
+
+    @property
+    def outgoing(self):
+        return self._outgoing
+
+    @property
+    def incoming(self):
+        return self._incoming
+
+    @property
+    def attributes(self):
+        return self._attributes
 
     def __repr__(self):
         return f"Node({self.label})"
@@ -42,9 +62,33 @@ class Edge:
     """
 
     def __init__(self, label, source, target):
-        self.label = label
-        self.source = source
-        self.target = target
+        self._label = label
+        self._source = source
+        self._target = target
+
+    @property
+    def label(self):
+        return self._label
+
+    @label.setter
+    def label(self, value):
+        self._label = value
+
+    @property
+    def source(self):
+        return self._source
+
+    @source.setter
+    def source(self, value):
+        self._source = value
+
+    @property
+    def target(self):
+        return self._target
+
+    @target.setter
+    def target(self, value):
+        self._target = value
 
     def __repr__(self):
         return f"Edge({self.label}, {self.source.label} -> {self.target.label})"
@@ -62,8 +106,16 @@ class Graph:
     """
 
     def __init__(self):
-        self.nodes = {}
-        self.edges = []
+        self._nodes = {}
+        self._edges = []
+
+    @property
+    def nodes(self):
+        return self._nodes
+
+    @property
+    def edges(self):
+        return self._edges
 
     def add_node(self, label):
         """Add a node to the graph if it does not already exist.
@@ -73,9 +125,11 @@ class Graph:
 
         Returns the existing or newly created node.
         """
-        if label not in self.nodes:
-            self.nodes[label] = Node(label)
-        return self.nodes[label]
+
+        if label not in self._nodes:
+            self._nodes[label] = Node(label)
+
+        return self._nodes[label]
 
     def add_edge(self, label, source_label, target_label):
         """Create a directed edge between two nodes.
@@ -89,10 +143,57 @@ class Graph:
 
         Returns the newly created edge.
         """
+
         source = self.add_node(source_label)
         target = self.add_node(target_label)
+
         edge = Edge(label, source, target)
-        self.edges.append(edge)
+
+        self._edges.append(edge)
         source.outgoing.append(edge)
         target.incoming.append(edge)
+
         return edge
+
+    def __repr__(self):
+        return f"Graph(nodes={len(self.nodes)}, edges={len(self.edges)})"
+    
+### TEST ###
+'''
+if __name__ == "__main__":
+
+    graph = Graph()
+
+    graph.add_edge("likes", "Martin", "Python")
+    graph.add_edge("studies", "Martin", "NMBU")
+    graph.add_edge("works_at", "Martin", "Elkjøp")
+    graph.add_edge("Walks", "Martin", "Home")
+
+    print("Nodes:")
+    for node in graph.nodes.values():
+        print(node)
+
+    print("\nEdges:")
+    for edge in graph.edges:
+        print(edge)
+
+    print("\nOutgoing from Martin:")
+    for edge in graph.nodes["Martin"].outgoing:
+        print(edge)
+
+    print("\nIncoming to Python:")
+    for edge in graph.nodes["Python"].incoming:
+        print(edge)
+
+    print("\nIncoming to NMBU:")
+    for edge in graph.nodes["NMBU"].incoming:
+        print(edge)
+
+    print("\nIncoming to Elkjøp:")
+    for edge in graph.nodes["Elkjøp"].incoming:
+        print(edge)
+
+    print("\nIncoming to Home:")
+    for edge in graph.nodes["Home"].incoming:
+        print(edge)
+'''
