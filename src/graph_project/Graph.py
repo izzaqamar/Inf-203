@@ -1,4 +1,4 @@
-# Task: 03 + Task 05
+# Task: 03 + Task 05 + task 06 + Task 08 + Partial Task 09
 
 from .Node import Node
 from .Edge import Edge
@@ -98,6 +98,7 @@ class Graph:
 
         return paths
 
+    # Task 8: Passing function object
     def query_path(self, labels, directions, node_filter=None):
         """
         Follow a sequence of edge labels with specified directions.
