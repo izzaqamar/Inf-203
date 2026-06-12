@@ -28,7 +28,7 @@ def main():
     print(f"Nodes: {len(graph.nodes)}")
     print(f"Edges: {len(graph.edges)}")
 
-    # TASK 6: Run a forward path query
+    # TASK 6: Run forward path query
 
     print("TASK 6: forward path query ")
 

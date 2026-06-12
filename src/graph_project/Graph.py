@@ -71,7 +71,7 @@ class Graph:
     def query_path_forward(self, labels):
         """
         Follow a sequence of edge labels in the forward direction.
-        Example: ["https://schema.org/superEvent", "https://schema.org/organizer"]
+        Example type: ["https://schema.org/superEvent", "https://schema.org/organizer"]
         """
 
         # We start with all nodes as possible x0
