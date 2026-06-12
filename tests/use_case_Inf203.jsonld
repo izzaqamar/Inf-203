@@ -1,0 +1,232 @@
+[ {
+  "@id" : "_:genid1",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ]
+}, {
+  "@id" : "http://example.org/ALU",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/dppo/ontology/Substance"
+  } ]
+}, {
+  "@id" : "http://example.org/_a",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/ceon/ontology/Item"
+  }, {
+    "@id" : "https://w3id.org/glass/ontology/Window"
+  } ],
+  "https://w3id.org/glass/ontology/numberOfPanes" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#integer",
+    "@value" : "2"
+  } ]
+}, {
+  "@id" : "http://example.org/_c",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/dppo/ontology/CompositionInformation"
+  } ],
+  "https://w3id.org/dppo/ontology/hasPart" : [ {
+    "@id" : "http://example.org/_g"
+  }, {
+    "@id" : "http://example.org/_h"
+  }, {
+    "@id" : "http://example.org/_i"
+  } ],
+  "https://w3id.org/dppo/ontology/hasWhole" : [ {
+    "@id" : "http://example.org/_a"
+  } ]
+}, {
+  "@id" : "http://example.org/_d",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://qudt.org/schema/qudt/hasQuantityKind" : [ {
+    "@id" : "https://qudt.org/vocab/quantitykind/Thickness"
+  } ],
+  "http://qudt.org/schema/qudt/unit" : [ {
+    "@id" : "http://qudt.org/vocab/unit/MilliM"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/dppo/ontology/ProductCharacteristic"
+  } ],
+  "https://w3id.org/dppo/ontology/isAbout" : [ {
+    "@id" : "http://example.org/_h"
+  } ],
+  "https://w3id.org/dppo/ontology/value" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#integer",
+    "@value" : "3"
+  } ]
+}, {
+  "@id" : "http://example.org/_e",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://qudt.org/schema/qudt/hasQuantityKind" : [ {
+    "@id" : "https://qudt.org/vocab/quantitykind/Thickness"
+  } ],
+  "http://qudt.org/schema/qudt/unit" : [ {
+    "@id" : "http://qudt.org/vocab/unit/MilliM"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/dppo/ontology/ProductCharacteristic"
+  } ],
+  "https://w3id.org/dppo/ontology/isAbout" : [ {
+    "@id" : "http://example.org/_g"
+  } ],
+  "https://w3id.org/dppo/ontology/value" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#integer",
+    "@value" : "2"
+  } ]
+}, {
+  "@id" : "http://example.org/_f",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/ceon/ontology/MatterComposition"
+  } ],
+  "https://w3id.org/ceon/ontology/associatedWithMatter" : [ {
+    "@id" : "http://example.org/ALU"
+  } ],
+  "https://w3id.org/ceon/ontology/compositionOf" : [ {
+    "@id" : "http://example.org/_i"
+  } ]
+}, {
+  "@id" : "http://example.org/_g",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/glass/ontology/WindowGlass"
+  } ]
+}, {
+  "@id" : "http://example.org/_h",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/glass/ontology/WindowGlass"
+  } ]
+}, {
+  "@id" : "http://example.org/_i",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/glass/ontology/WindowFrame"
+  } ]
+}, {
+  "@id" : "http://example.org/palletDPP_1",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/dppo/ontology/DPP"
+  } ],
+  "https://w3id.org/dppo/ontology/containsInformation" : [ {
+    "@id" : "http://example.org/_c"
+  }, {
+    "@id" : "http://example.org/_d"
+  }, {
+    "@id" : "http://example.org/_e"
+  }, {
+    "@id" : "http://example.org/_f"
+  } ],
+  "https://w3id.org/dppo/ontology/describes" : [ {
+    "@id" : "http://example.org/_a"
+  } ]
+}, {
+  "@id" : "http://qudt.org/schema/qudt/QuantityKind",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://qudt.org/schema/qudt/Unit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://qudt.org/schema/qudt/hasQuantityKind",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://qudt.org/schema/qudt/unit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://qudt.org/vocab/unit/MilliM",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://qudt.org/schema/qudt/Unit"
+  } ]
+}, {
+  "@id" : "https://qudt.org/vocab/quantitykind/Thickness",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://qudt.org/schema/qudt/QuantityKind"
+  } ]
+}, {
+  "@id" : "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#BuiltElement",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/ceon/ontology/BatchOfObjects",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/ceon/ontology/Item",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/ceon/ontology/MatterComposition",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/ceon/ontology/associatedWithMatter",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "https://w3id.org/ceon/ontology/compositionOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "https://w3id.org/dppo/ontology/CompositionInformation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/dppo/ontology/DPPInformation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dppo/ontology/DPP",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/dppo/ontology/DPPInformation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/dppo/ontology/Product",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/dppo/ontology/ProductCharacteristic",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/dppo/ontology/DPPInformation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dppo/ontology/Substance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/dppo/ontology/Product"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dppo/ontology/containsInformation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "https://w3id.org/dppo/ontology/describes",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "https://w3id.org/dppo/ontology/hasPart",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "https://w3id.org/dppo/ontology/hasWhole",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "https://w3id.org/dppo/ontology/isAbout",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "https://w3id.org/dppo/ontology/value",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "https://w3id.org/glass/ontology/Window",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#BuiltElement"
+  } ]
+}, {
+  "@id" : "https://w3id.org/glass/ontology/WindowFrame",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#BuiltElement"
+  } ]
+}, {
+  "@id" : "https://w3id.org/glass/ontology/WindowGlass",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#BuiltElement"
+  } ]
+}, {
+  "@id" : "https://w3id.org/glass/ontology/numberOfPanes",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+} ]
