@@ -1,6 +1,7 @@
 import json
 from .Graph import Graph
 
+
 class jsonLD_parser:
     def load_jsonld(self, file_path):
         """
@@ -53,7 +54,12 @@ class jsonLD_parser:
                         # we have already used this
                         continue
                     if key == "@type":
-                        triples.append((node_id, "type", value))
+                        # @type can be a list or a single string
+                        if isinstance(value, list):
+                            for t in value:
+                                triples.append((node_id, "type", t))
+                        else:
+                            triples.append((node_id, "type", value))
                         continue
 
                     # case 1.1 for values
