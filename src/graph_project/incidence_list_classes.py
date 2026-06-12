@@ -1,7 +1,7 @@
 # Inf-203 Project
 # Group:04
 # Worksheet:1
-# Task: 03 + 05
+# Task: 03 + Task 05
 
 
 class Node:
