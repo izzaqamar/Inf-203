@@ -98,7 +98,7 @@ class Graph:
 
         return paths
 
-    def query_path(self, labels, directions):
+    def query_path(self, labels, directions, node_filter=None):
         """
         Follow a sequence of edge labels with specified directions.
         labels:      list of edge labels
@@ -122,7 +122,9 @@ class Graph:
                         # If forward: last → target
                         # If backward: last → source
                         next_node = edge.target if forward else edge.source
-                        new_paths.append(path + [next_node])
+                        # Apply filter if provided
+                        if node_filter is None or node_filter(next_node):
+                            new_paths.append(path + [next_node])
 
             paths = new_paths
 
