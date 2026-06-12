@@ -42,6 +42,12 @@ Notes from: 10.06.2026
         As a user, I want empty query results to be handled gracefully so that the program does not crash when no matching paths exist
         As a user, I want duplicate nodes to be avoided so that each entity appears only once in the graph
 
+
+Notes from 12.06.2026
+    * Only one large """ - """ for functions, not many smaller Comments
+    * Functions should be classes
+    * Every class should be one file
+
 ###
 Code for task 5
 i'll make docstring and implement to code of group agree to this

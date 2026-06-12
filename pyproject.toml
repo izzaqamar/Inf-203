@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "graph_project"
 version = "0.1.0"
-description = "Incidence list graph + JSON-LD parser project"
+description = "Node + Edge + Graph + JSON-LD parser project"
 authors = [
     { name = "Izza Qamar , Martin Braaten Kildal, Philip Adrian Kern Øvland" }
 ]
