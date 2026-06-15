@@ -44,27 +44,30 @@ Additionally we created a quick program that visualizes the graph using the Kama
 \section{Task 8}
 
 \section{Task 9}
+Implemented functinalities:
+    Analysis functionalities:
+    - Shortest path between two nodes
+    - Find all paths between two nodes (YET TO BE IMPLEMENTED)
+
+    Filtering functionalities:
+    - Find orphans
+    - Filter by attribute value
+    - Filter by node type
+
+
 Possible functionalities to implement:
-Plan: Orphans, duplicate triples, filter by attribute value, shortest path(if time).
+    Path & Traversal Queries
+    -Find all neighbors of a node (1 hop out, or N hops out)
+    -Find all paths between two nodes
 
-Path & Traversal Queries
--Shortest path between two nodes
--Find all neighbors of a node (1 hop out, or N hops out)
--Find all paths between two nodes
+    Lookup & Filter Queries
+    -Count how many edges of a given label exist in the graph
+    -List all unique edge labels in the graph
 
-Lookup & Filter Queries
--Find all nodes of a given type — e.g. all schema:Event nodes
--Filter by attribute value — e.g. find nodes where schema:name = "Oslo"
--Count how many edges of a given label exist in the graph
--List all unique edge labels in the graph
--Find nodes with no outgoing / no incoming edges (dead ends or roots)
-
-Validation
--Check for duplicate triples — already flagged in your load_jsonld comments
--Verify referential integrity — every edge target actually exists as a proper node
--Check required properties — does every Event node have a schema:name?
--Find orphan nodes — nodes with zero connections
--Detect cycles — is there a loop in the graph?
+    Validation
+    -Verify referential integrity — every edge target actually exists as a proper node
+    -Check required properties — does every Event node have a schema:name?
+    -Detect cycles — is there a loop in the graph?
 
 \section{Task 10}
 

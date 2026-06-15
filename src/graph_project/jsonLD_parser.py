@@ -18,7 +18,6 @@ class JsonLD_parser:
         - Returns the constructed graph
 
         Possible improvements:
-        - No handling of duplicate triples, which could lead to multiple identical edges in the graph
         - Validate / normalize the triples
         - In case that node_id becomes "none", unrelated nodes could merge
 
