@@ -56,4 +56,3 @@ class Filter(Graph):
         
         return listOfOrphanNodes
     
-        
