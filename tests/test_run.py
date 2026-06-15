@@ -5,7 +5,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
-from graph_project.jsonLD_parser import jsonLD_parser
+from graph_project.JsonLD_parser import JsonLD_parser
 
 
 def main():
@@ -14,7 +14,7 @@ def main():
 
     This function:
     - Loads a JSON-LD file
-    - Converts it into a directed graph using jsonLD_parser()
+    - Converts it into a directed graph using JsonLD_parser()
     - Prints all nodes in the graph
     - Prints all edges in the graph
     - Displays a sample node with its outgoing and incoming edges
@@ -26,7 +26,7 @@ def main():
     )  #  JSON-LD file
 
 
-    parser = jsonLD_parser()
+    parser = JsonLD_parser()
     graph = parser.load_jsonld(file_path)
 
     print("\nNodes:")

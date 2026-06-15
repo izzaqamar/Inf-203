@@ -4,7 +4,7 @@ import sys
 # Make sure Python can find your src/ folder
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-from graph_project.jsonLD_parser import jsonLD_parser
+from graph_project.JsonLD_parser import JsonLD_parser
 
 
 def main():
@@ -21,7 +21,7 @@ def main():
 
     print("Loading JSON-LD file:", file_path)
 
-    parser = jsonLD_parser()
+    parser = JsonLD_parser()
     graph = parser.load_jsonld(file_path)
 
     print("\nGraph loaded.")

@@ -5,14 +5,14 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
-from graph_project.jsonLD_parser import jsonLD_parser
+from graph_project.JsonLD_parser import JsonLD_parser
 
 file_path = os.path.join(
     os.path.dirname(__file__), "linked-data-intro-context.json"
 )  #  JSON-LD file
 
 
-parser = jsonLD_parser()
+parser = JsonLD_parser()
 graph = parser.load_jsonld(file_path)
 
 

@@ -2,7 +2,7 @@ import json
 from .Graph import Graph
 
 
-class jsonLD_parser:
+class JsonLD_parser:
     def load_jsonld(self, file_path):
         """
         Loads a JSON-LD file, converts it into a graph and returns the graph.
