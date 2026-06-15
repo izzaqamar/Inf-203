@@ -1,11 +1,7 @@
 import os
 import sys
 
-BASE_DIR = os.path.abspath(os.path.join(os.getcwd(), "src"))
-
-print("CWD:", os.getcwd())
-print("ADDING:", BASE_DIR)
-
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
 sys.path.insert(0, BASE_DIR)
 
 from graph_project.jsonLD_parser import JsonLD_parser
