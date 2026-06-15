@@ -4,6 +4,8 @@ from .Graph import Graph
 class Filter(Graph):
     def filter_by_type(self, graph, node_type):
         """
+        NOT TESTED YET
+
         Filters the graph to find all nodes of a specific type
 
         Args: 
@@ -23,6 +25,8 @@ class Filter(Graph):
     
     def filter_by_name(self, graph, name):
         """
+        NOT TESTED YET
+
         Filters the graph to find all nodes with a specific name
 
         Args: 
@@ -41,6 +45,8 @@ class Filter(Graph):
     
     def filter_orphans(self, graph):
         """
+        NOT TESTED YET
+
         Filters the graph to find all orphan nodes (nodes with no incoming or outgoing edges)
 
         Args: 
