@@ -3,13 +3,13 @@ from .Graph import Graph
 
 
 class JsonLD_parser:
-    def load_jsonld(self, file_path, duplicateAcceptance):
+    def load_jsonld(self, file_path, remove_duplicates):
         """
         Loads a JSON-LD file, converts it into a graph and returns the graph.
 
         Args:
             file_path (str): The path to the JSON-LD file to be loaded.
-            duplicateAcceptance (bool): A flag indicating whether to accept duplicate triples.
+            remove_duplicates (bool): A flag indicating whether to accept duplicate triples.
 
         This function:
         - Reads the JSON-LD file
@@ -22,12 +22,12 @@ class JsonLD_parser:
         - In case that node_id becomes "none", unrelated nodes could merge
 
         """
-        # Creates a graph object
+        
         graph = Graph()
 
-        # Creates a list of facts (triples)
+        
         triples_list = []
-        triples_set = set()  # To track unique triples and avoid duplicates
+        triples_set = set()  
 
         # Loads the JSON file
         with open(file_path, "r") as f:
@@ -58,12 +58,12 @@ class JsonLD_parser:
                         # @type can be a list or a single string
                         if isinstance(value, list):
                             for t in value:
-                                if duplicateAcceptance:
+                                if remove_duplicates:
                                     triples_list.append((node_id, "type", t))
                                 else:
                                     triples_set.add((node_id, "type", t))
                         else:
-                            if duplicateAcceptance:
+                            if remove_duplicates:
                                 triples_list.append((node_id, "type", value))
                             else:
                                 triples_set.add((node_id, "type", value))
@@ -75,7 +75,7 @@ class JsonLD_parser:
                         obj_id = value.get("@id")
                         if obj_id is not None:
                             # if @id is not present, then obj_id will get a "none" value
-                            if duplicateAcceptance:
+                            if remove_duplicates:
                                 triples_list.append((node_id, key, obj_id))
                             else:
                                 triples_set.add((node_id, key, obj_id))
@@ -92,7 +92,7 @@ class JsonLD_parser:
 
                                 if item_id is not None:
                                     # if @id is not present, then item_id will get a "none" value
-                                    if duplicateAcceptance:
+                                    if remove_duplicates:
                                         triples_list.append((node_id, key, item_id))
                                     else:
                                         triples_set.add((node_id, key, item_id))
@@ -100,14 +100,14 @@ class JsonLD_parser:
                                 else:
                                     extract(item, node_id)
                             else:
-                                if duplicateAcceptance:
+                                if remove_duplicates:
                                     triples_list.append((node_id, key, str(item)))
                                 else:
                                     triples_set.add((node_id, key, str(item)))
 
                     # case 1.3 for litreal values
                     else:
-                        if duplicateAcceptance:
+                        if remove_duplicates:
                             triples_list.append((node_id, key, str(value)))
                         else:
                             triples_set.add((node_id, key, str(value)))
@@ -120,7 +120,7 @@ class JsonLD_parser:
 
             else:
                 # case 3: obj is a literal values
-                if duplicateAcceptance:
+                if remove_duplicates:
                     triples_list.append((subject, "value", str(obj)))
                 else:
                     triples_set.add((subject, "value", str(obj)))
@@ -128,7 +128,13 @@ class JsonLD_parser:
         # Extract data
         extract(data)
 
-        # Buld the graph from the triples
+        
+        if remove_duplicates:
+            triples = triples_list
+        else:
+            triples = list(triples_set)
+
+        # Build the graph from the triples
         for s, p, o in triples:
             # for each triple, we add two nodes and one edge to the graph
             # s is the subject, p is the predicate (relationship for us normal people), o is the object
