@@ -27,7 +27,7 @@ def main():
 
 
     parser = JsonLD_parser()
-    graph = parser.load_jsonld(file_path)
+    graph = parser.load_jsonld(file_path, False)
 
     print("\nNodes:")
     for label, node in graph.nodes.items():

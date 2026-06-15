@@ -22,7 +22,7 @@ def main():
     print("Loading JSON-LD file:", file_path)
 
     parser = JsonLD_parser()
-    graph = parser.load_jsonld(file_path)
+    graph = parser.load_jsonld(file_path, False)
 
     print("\nGraph loaded.")
     print(f"Nodes: {len(graph.nodes)}")

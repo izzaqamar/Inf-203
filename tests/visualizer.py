@@ -13,7 +13,7 @@ file_path = os.path.join(
 
 
 parser = JsonLD_parser()
-graph = parser.load_jsonld(file_path)
+graph = parser.load_jsonld(file_path, False)
 
 
 G = nx.DiGraph()
