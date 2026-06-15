@@ -107,4 +107,5 @@ if __name__ == "__main__":
     print("\nIncoming to Home:")
     for edge in graph.nodes["Home"].incoming:
         print(edge)
+        
 """

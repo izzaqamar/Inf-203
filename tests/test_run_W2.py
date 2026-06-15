@@ -1,10 +1,15 @@
 import os
 import sys
 
-# Make sure Python can find your src/ folder
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+BASE_DIR = os.path.abspath(os.path.join(os.getcwd(), "src"))
+
+print("CWD:", os.getcwd())
+print("ADDING:", BASE_DIR)
+
+sys.path.insert(0, BASE_DIR)
 
 from graph_project.jsonLD_parser import JsonLD_parser
+from graph_project.query import Query
 
 
 def main():
@@ -28,6 +33,9 @@ def main():
     print(f"Nodes: {len(graph.nodes)}")
     print(f"Edges: {len(graph.edges)}")
 
+    # Creating Query object
+    query = Query(graph)
+
     # TASK 6: Run forward path query
 
     print("TASK 6: forward path query ")
@@ -40,7 +48,7 @@ def main():
     print("Query labels:", labels)
     print("\nResults:\n")
 
-    graph.query_path_forward(labels)
+    query.query_path_forward(labels)
 
     # TASK 9: We test  backward path query
 
@@ -53,7 +61,7 @@ def main():
     print("Directions:", directions)
     print("\nResults:\n")
 
-    graph.query_path(labels, directions)
+    query.query_path(labels, directions)
 
 
 if __name__ == "__main__":

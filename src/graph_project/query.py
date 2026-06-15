@@ -41,7 +41,7 @@ class Query:
 
         return paths
 
-    # Task 08 & 09: Passing function object
+    # Task 08 & 09: Passing function object and backward paath
     def query_path(self, labels, directions, node_filter=None):
         """
         Follow a sequence of edge labels with specified directions.
