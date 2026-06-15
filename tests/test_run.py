@@ -4,8 +4,8 @@ import sys
 import networkx as nx
 import matplotlib.pyplot as plt
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
-from graph_project.JsonLD_parser import JsonLD_parser
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+from graph_project.jsonLD_parser import JsonLD_parser
 
 
 def main():
@@ -25,7 +25,6 @@ def main():
         os.path.dirname(__file__), "linked-data-intro-context.json"
     )  #  JSON-LD file
 
-
     parser = JsonLD_parser()
     graph = parser.load_jsonld(file_path, False)
 
@@ -44,12 +43,11 @@ def main():
     print("Outgoing edges:", exmaple_node.outgoing)
     print("Incoming edges:", exmaple_node.incoming)
 
-
-    
-    #--------------------------------------------------------------
-    #Visualization using NetworkX and Matplotlib
+    # --------------------------------------------------------------
+    # Visualization using NetworkX and Matplotlib
 
     G = nx.DiGraph()
+
     def short_label(x):
         # Helper function to remove the left part of : "example-abox:NANOTEXNOLOGY_2025"
         if x is None:
@@ -60,26 +58,16 @@ def main():
         G.add_edge(
             short_label(edge.source.label),
             short_label(edge.target.label),
-            label=edge.label
+            label=edge.label,
         )
 
-    
     plt.figure(figsize=(14, 10))
     pos = nx.spring_layout(G, k=1.5, seed=42)
     nx.draw(
-        G,
-        pos,
-        with_labels=True,
-        arrows=True,
-        node_size=2000,
-        font_size=8,
-        arrowsize=15
+        G, pos, with_labels=True, arrows=True, node_size=2000, font_size=8, arrowsize=15
     )
     nx.draw_networkx_edge_labels(
-        G,
-        pos,
-        edge_labels=nx.get_edge_attributes(G, "label"),
-        font_size=7
+        G, pos, edge_labels=nx.get_edge_attributes(G, "label"), font_size=7
     )
 
     plt.tight_layout()
