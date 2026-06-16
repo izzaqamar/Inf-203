@@ -6,6 +6,7 @@ sys.path.insert(0, BASE_DIR)
 
 from graph_project.JsonLD_parser import JsonLD_parser
 from graph_project.query import Query
+from graph_project.Filter import FilterByType, FilterByName, FilterOrphans
 
 
 def main():
@@ -46,7 +47,7 @@ def main():
 
     query.query_path_forward(labels)
 
-    # TASK 9: We test  backward path query
+    # TASK 9.1: We test  backward path query
 
     print("TASK 9: backward path query ")
 
@@ -59,6 +60,33 @@ def main():
 
     query.query_path(labels, directions)
 
+    # TASK 9.2: We test filter by type
 
+    print("\nFILTER TEST 1: FilterByType")
+    f_type = FilterByType("https://w3id.org/glass/ontology/WindowGlass")
+    results = f_type.apply(graph)
+    print(f"Nodes of type WindowGlass: {len(results)}")
+    for node in results:
+        print(f"  - {node.label}")
+
+    # TASK 9.3: We test filter by name
+
+    print("\nFILTER TEST 2: FilterByName")
+    f_name = FilterByName("example.org")
+    results = f_name.apply(graph)
+    print(f"Nodes with 'example.org' in name: {len(results)}")
+    for node in results:
+        print(f"  - {node.label}")
+
+    # TASK 9.4: We test filter orphans
+    
+    print("\nFILTER TEST 3: FilterOrphans")
+    f_orphan = FilterOrphans()
+    results = f_orphan.apply(graph)
+    print(f"Orphan nodes: {len(results)}")
+    for node in results:
+        print(f"  - {node.label}")
+
+    
 if __name__ == "__main__":
     main()

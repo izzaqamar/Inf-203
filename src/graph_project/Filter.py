@@ -22,7 +22,7 @@ class FilterByType:
         - On entire graph using apply() 
             - Returns list of nodes
     """
-    
+
     def __init__(self, node_type):
         """
         Args:

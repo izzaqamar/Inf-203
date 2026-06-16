@@ -1,6 +1,17 @@
 import json
 from .Graph import Graph
 
+RDF_TYPE_URIS = [
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "rdf:type"
+]
+
+def is_type_predicate(key):
+    """
+    Return True if the key is a type predicate
+    """
+    return key in RDF_TYPE_URIS or key == "@type"
+
 
 class JsonLD_parser:
     def load_jsonld(self, file_path, remove_duplicates):
@@ -76,11 +87,16 @@ class JsonLD_parser:
                         # recursivly extracts the nested dictionary
                         obj_id = value.get("@id")
                         if obj_id is not None:
+                            # Check if the key is a type predicate and normalize it
+                            if is_type_predicate(key):
+                                normalized_key = "type"
+                            else:
+                                normalized_key = key
                             # if @id is not present, then obj_id will get a "none" value
                             if remove_duplicates:
-                                triples_set.add((node_id, key, obj_id))
+                                triples_set.add((node_id, normalized_key, obj_id))
                             else:
-                                triples_list.append((node_id, key, obj_id))
+                                triples_list.append((node_id, normalized_key, obj_id))
                             extract(value, obj_id)
                         else:
                             extract(value, node_id)
@@ -93,11 +109,16 @@ class JsonLD_parser:
                                 item_id = item.get("@id")
 
                                 if item_id is not None:
+                                    # Check if the key is a type predicate and normalize it
+                                    if is_type_predicate(key):
+                                        normalized_key = "type"
+                                    else:
+                                        normalized_key = key
                                     # if @id is not present, then item_id will get a "none" value
                                     if remove_duplicates:
-                                        triples_set.add((node_id, key, item_id))
+                                        triples_set.add((node_id, normalized_key, item_id))
                                     else:
-                                        triples_list.append((node_id, key, item_id))
+                                        triples_list.append((node_id, normalized_key, item_id))
                                         
                                     extract(item, item_id)
                                 else:
