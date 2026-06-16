@@ -4,8 +4,9 @@ import sys
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
 sys.path.insert(0, BASE_DIR)
 
-from graph_project.JsonLD_parser import JsonLD_parser
+from graph_project.jsonLD_parser import JsonLD_parser
 from graph_project.query import Query
+from graph_project.Filter import FilterByType
 
 
 def main():
@@ -58,6 +59,22 @@ def main():
     print("\nResults:\n")
 
     query.query_path(labels, directions)
+
+    # Task 9: We test forward + filter
+    print("TASK: forward + filter")
+
+    labels = ["https://w3id.org/dppo/ontology/hasPart"]
+    directions = [True]
+
+    filters = [FilterByType("https://w3id.org/glass/ontology/WindowGlass")]
+    print("Query labels:", labels)
+    print("Directions:", directions)
+    print("Filter:", "WindowGlass")
+    print()
+
+    print("Results:\n")
+
+    query.query_path(labels, directions, filters)
 
 
 if __name__ == "__main__":
