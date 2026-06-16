@@ -73,7 +73,6 @@ def main():
     print()
 
     print("Results:\n")
-
     query.query_path(labels, directions, filters)
 
 
