@@ -44,16 +44,26 @@ Additionally we created a quick program that visualizes the graph using the Kama
 \section{Task 8}
 
 \section{Task 9}
-Implemented functinalities:
-    Analysis functionalities:
-    - Shortest path between two nodes
-    - Find all paths between two nodes (YET TO BE IMPLEMENTED)
+We added additional functionalities to our querying system. Specifically, we implemented backward edge traversal and flexible filtering during path queries.
+We implemented this by extending the query_path method to accept a directions list alongside the labels list:
 
-    Filtering functionalities:
-    - Find orphans
-    - Filter by attribute value
-    - Filter by node type
+def query_path(self, labels, directions, filters=None):
 
+Each entry in directions is a boolean where True means follow the edge forward and False means follow it backward. This allows us to run queries like:
+
+query.query_path(
+    labels=["https://schema.org/performer", 
+            "https://schema.org/superEvent", 
+            "https://schema.org/organizer"],
+    directions=[False, True, True]
+)
+
+During traversal, the method picks outgoing or incoming edges based on the direction:
+edges = last.outgoing if forward else last.incoming
+
+
+
+--- NOT FOR REPORT ---
 
 Possible functionalities to implement:
     Path & Traversal Queries

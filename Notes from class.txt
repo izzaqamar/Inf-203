@@ -105,3 +105,23 @@ def query_path_forward(self, labels):
 
     return results
 ###
+
+
+Notes from 16.06.2026
+    * Create a graph diagram
+        Use the notation that is in the "Encapulation powerpoint"
+    
+    Task 12
+        DPP-DPPO-CEON-Ontology
+
+        
+        Equivilent class === exact match
+
+    * Testing
+        Use pytest
+        We need to use one of each type of test, but multiple of the ?unit test?
+
+        Formal verification
+
+    *** Write ER diagram for your code
+        
