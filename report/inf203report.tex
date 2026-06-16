@@ -44,22 +44,29 @@ Additionally we created a quick program that visualizes the graph using the Kama
 \section{Task 8}
 
 \section{Task 9}
-We added additional functionalities to our querying system. Specifically, we implemented backward edge traversal and flexible filtering during path queries.
-We implemented this by extending the query_path method to accept a directions list alongside the labels list:
+We implemented this by extending the query_path method to accept a directions list alongside the labels list, and an optional filters list:
 
 def query_path(self, labels, directions, filters=None):
 
-Each entry in directions is a boolean where True means follow the edge forward and False means follow it backward. This allows us to run queries like:
+Each entry in directions is a boolean where True means follow the edge forward and False means follow it backward. The filters list accepts callable filter objects, where all filters must pass for a node to be included in the path. This allows us to run queries like:
 
 query.query_path(
     labels=["https://schema.org/performer", 
             "https://schema.org/superEvent", 
             "https://schema.org/organizer"],
-    directions=[False, True, True]
+    directions=[False, True, True],
+    filters=[FilterByType("schema:Person")]
 )
 
 During traversal, the method picks outgoing or incoming edges based on the direction:
+
 edges = last.outgoing if forward else last.incoming
+
+For each candidate node, apply_filters checks all filters before including the node in the path:
+
+node_passes_filters = self.apply_filters(next_node, filters)
+if node_passes_filters:
+    new_paths.append(path + [next_node])
 
 
 

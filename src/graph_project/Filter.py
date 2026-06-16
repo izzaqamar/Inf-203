@@ -1,5 +1,17 @@
 from .Graph import Graph
+"""
+How to use:
 
+query.query_path(
+    labels=["https://schema.org/performer"],
+    directions=[True],
+    filters=[
+        FilterByType("schema:Person"),
+        FilterByName("Argiris")
+    ]
+)
+
+"""
 
 class FilterByType:
     """
