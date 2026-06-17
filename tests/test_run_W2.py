@@ -4,7 +4,7 @@ import sys
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
 sys.path.insert(0, BASE_DIR)
 
-from graph_project.JsonLD_parser import JsonLD_parser
+from graph_project.jsonLD_parser import JsonLD_parser
 from graph_project.query import Query
 from graph_project.Filter import FilterByType, FilterByName, FilterOrphans
 
@@ -77,7 +77,6 @@ def main():
 
     # TASK 9.2: We test filter by type
 
-
     print("\nFILTER TEST 1: FilterByType")
     f_type = FilterByType("https://w3id.org/glass/ontology/WindowGlass")
     results = f_type.apply(graph)
@@ -95,7 +94,7 @@ def main():
         print(f"  - {node.label}")
 
     # TASK 9.4: We test filter orphans
-    
+
     print("\nFILTER TEST 3: FilterOrphans")
     f_orphan = FilterOrphans()
     results = f_orphan.apply(graph)
@@ -103,6 +102,6 @@ def main():
     for node in results:
         print(f"  - {node.label}")
 
-    
+
 if __name__ == "__main__":
     main()
