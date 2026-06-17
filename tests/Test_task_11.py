@@ -1,14 +1,13 @@
 import os
 import sys
 
-#Folder where this file is placed
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SRC_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "src"))
 
-#Makes it possible to import from src
-sys.path.insert(0, BASE_DIR)
+sys.path.insert(0, SRC_DIR)
 
 from graph_project.jsonLD_parser import JsonLD_parser
-from OntologyTransformer import OntologyTransformer
+from graph_project.OntologyTransformer import OntologyTransformer
 
 
 def main():
@@ -23,30 +22,16 @@ def main():
     transformation, so the result can be checked in the terminal.
     """
 
-    #Input source graph
+    # Input source graph
     source_file = os.path.abspath(
-        os.path.join(
-            BASE_DIR,
-            "..",
-            "tests",
-            "use_case_Inf203.jsonld"
-        )
+        os.path.join(BASE_DIR, "..", "tests", "use_case_Inf203.jsonld")
     )
 
-    #Alignment file
-    alignment_file = os.path.abspath(
-        os.path.join(
-            BASE_DIR,
-            "alignment.json"
-        )
-    )
+    PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))
 
-    #Output file
-    output_file = os.path.abspath(
-        os.path.join(
-            BASE_DIR,
-            "transformed_graph.jsonld"
-        )
+    alignment_file = os.path.join(PROJECT_ROOT, "src", "data", "alignment.json")
+    output_file = os.path.join(
+        PROJECT_ROOT, "src", "output", "transformed_graph.jsonld"
     )
 
     print("Source file:")
@@ -65,7 +50,7 @@ def main():
         print("\nERROR: Alignment file was not found.")
         return
 
-    #Load source graph
+    # Load source graph
     print("\nLoading source graph...")
 
     parser = JsonLD_parser()
@@ -77,21 +62,14 @@ def main():
 
     print("\nOriginal sample edges:")
     for edge in source_graph.edges[:10]:
-        print(
-            f"{edge.source.label} "
-            f"--{edge.label}--> "
-            f"{edge.target.label}"
-        )
+        print(f"{edge.source.label} " f"--{edge.label}--> " f"{edge.target.label}")
 
-    #Transform graph
+    # Transform graph
     transformer = OntologyTransformer()
 
     print("\nTransforming graph...")
 
-    transformed_graph = transformer.transform(
-        source_graph,
-        alignment_file
-    )
+    transformed_graph = transformer.transform(source_graph, alignment_file)
 
     print("\nTransformation complete.")
     print(f"Nodes: {len(transformed_graph.nodes)}")
@@ -99,19 +77,12 @@ def main():
 
     print("\nTransformed sample edges:")
     for edge in transformed_graph.edges[:10]:
-        print(
-            f"{edge.source.label} "
-            f"--{edge.label}--> "
-            f"{edge.target.label}"
-        )
+        print(f"{edge.source.label} " f"--{edge.label}--> " f"{edge.target.label}")
 
-    #Export transformed graph
+    # Export transformed graph
     print("\nExporting graph...")
 
-    transformer.export_jsonld(
-        transformed_graph,
-        output_file
-    )
+    transformer.export_jsonld(transformed_graph, output_file)
 
     print("\nDone.")
     print("Output file:")

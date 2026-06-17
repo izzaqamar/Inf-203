@@ -1,5 +1,6 @@
 # Task 11: Knowledge graph transformation
 
+import os
 import json
 from graph_project.Graph import Graph
 
@@ -25,7 +26,7 @@ class OntologyTransformer:
             "exactMatch",
             "closeMatch",
             "broadMatch",
-            "narrowMatch"
+            "narrowMatch",
         ]
 
     def load_alignment(self, alignment_file):
@@ -51,16 +52,10 @@ class OntologyTransformer:
         alignment_map = {}
 
         if "concepts" in alignment_data:
-            self._add_mappings(
-                alignment_data["concepts"],
-                alignment_map
-            )
+            self._add_mappings(alignment_data["concepts"], alignment_map)
 
         if "relations" in alignment_data:
-            self._add_mappings(
-                alignment_data["relations"],
-                alignment_map
-            )
+            self._add_mappings(alignment_data["relations"], alignment_map)
 
         return alignment_map
 
@@ -84,10 +79,7 @@ class OntologyTransformer:
             target_label = info.get("target")
             match_type = info.get("match")
 
-            if (
-                target_label is not None
-                and match_type in self.supported_matches
-            ):
+            if target_label is not None and match_type in self.supported_matches:
                 alignment_map[source_label] = target_label
 
     def transform(self, source_graph, alignment_file):
@@ -108,53 +100,31 @@ class OntologyTransformer:
             nodes and edges.
         """
 
-        alignment_map = self.load_alignment(
-            alignment_file
-        )
+        alignment_map = self.load_alignment(alignment_file)
 
         target_graph = Graph()
 
-        #Add all nodes
+        # Add all nodes
         for node in source_graph.nodes.values():
 
-            new_label = self._transform_label(
-                node.label,
-                alignment_map
-            )
+            new_label = self._transform_label(node.label, alignment_map)
 
             target_graph.add_node(new_label)
 
-        #Add transformed edges
+        # Add transformed edges
         for edge in source_graph.edges:
 
-            new_source = self._transform_label(
-                edge.source.label,
-                alignment_map
-            )
+            new_source = self._transform_label(edge.source.label, alignment_map)
 
-            new_edge = self._transform_label(
-                edge.label,
-                alignment_map
-            )
+            new_edge = self._transform_label(edge.label, alignment_map)
 
-            new_target = self._transform_label(
-                edge.target.label,
-                alignment_map
-            )
+            new_target = self._transform_label(edge.target.label, alignment_map)
 
-            target_graph.add_edge(
-                new_edge,
-                new_source,
-                new_target
-            )
+            target_graph.add_edge(new_edge, new_source, new_target)
 
         return target_graph
 
-    def _transform_label(
-        self,
-        label,
-        alignment_map
-    ):
+    def _transform_label(self, label, alignment_map):
         """
         Applies a label transformation if a mapping exists.
 
@@ -176,11 +146,7 @@ class OntologyTransformer:
 
         return label
 
-    def export_jsonld(
-        self,
-        graph,
-        output_file
-    ):
+    def export_jsonld(self, graph, output_file):
         """
         Exports a graph to JSON-LD format.
 
@@ -193,20 +159,16 @@ class OntologyTransformer:
             output_file (str): Destination file path.
         """
 
-        data = {
-            "@graph": []
-        }
+        data = {"@graph": []}
 
         nodes_json = {}
 
-        #Create JSON object for each node
+        # Create JSON object for each node
         for node in graph.nodes.values():
 
-            nodes_json[node.label] = {
-                "@id": node.label
-            }
+            nodes_json[node.label] = {"@id": node.label}
 
-        #Add edges
+        # Add edges
         for edge in graph.edges:
 
             source = edge.source.label
@@ -220,25 +182,19 @@ class OntologyTransformer:
                 nodes_json[source][label] = []
 
             if self._looks_like_uri(target):
-                value = {
-                    "@id": target
-                }
+                value = {"@id": target}
             else:
                 value = target
 
-            nodes_json[source][label].append(
-                value
-            )
+            nodes_json[source][label].append(value)
 
         for node in nodes_json.values():
             data["@graph"].append(node)
 
+        os.makedirs(os.path.dirname(output_file), exist_ok=True)
+
         with open(output_file, "w") as f:
-            json.dump(
-                data,
-                f,
-                indent=4
-            )
+            json.dump(data, f, indent=4)
 
     def _looks_like_uri(self, value):
         """
@@ -255,7 +211,4 @@ class OntologyTransformer:
             otherwise False.
         """
 
-        return (
-            value.startswith("http://")
-            or value.startswith("https://")
-        )
+        return value.startswith("http://") or value.startswith("https://")
