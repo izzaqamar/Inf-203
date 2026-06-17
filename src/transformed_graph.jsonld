@@ -1,0 +1,482 @@
+{
+    "@graph": [
+        {
+            "@id": "_:genid1",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Ontology"
+                }
+            ]
+        },
+        {
+            "@id": "http://www.w3.org/2002/07/owl#Ontology"
+        },
+        {
+            "@id": "http://example.org/ALU",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+                },
+                {
+                    "@id": "https://w3id.org/dppo/ontology/Substance"
+                }
+            ]
+        },
+        {
+            "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+        },
+        {
+            "@id": "https://w3id.org/dppo/ontology/Substance",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                },
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                }
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+                {
+                    "@id": "https://w3id.org/dppo/ontology/Product"
+                },
+                {
+                    "@id": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#BuiltElement"
+                }
+            ]
+        },
+        {
+            "@id": "http://example.org/_a",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+                },
+                {
+                    "@id": "https://w3id.org/ceon/ontology/Item"
+                },
+                {
+                    "@id": "https://w3id.org/dppo/ontology/Product"
+                },
+                {
+                    "@id": "http://www.w3.org/2001/XMLSchema#integer"
+                }
+            ],
+            "@value": [
+                "2"
+            ]
+        },
+        {
+            "@id": "https://w3id.org/ceon/ontology/Item",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/dppo/ontology/Product",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                },
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                }
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+                {
+                    "@id": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#BuiltElement"
+                }
+            ]
+        },
+        {
+            "@id": "http://www.w3.org/2001/XMLSchema#integer"
+        },
+        {
+            "@id": "2"
+        },
+        {
+            "@id": "http://example.org/_c",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+                },
+                {
+                    "@id": "https://w3id.org/dppo/ontology/DPPInformation"
+                }
+            ],
+            "https://w3id.org/dppo/ontology/hasPart": [
+                {
+                    "@id": "http://example.org/_g"
+                },
+                {
+                    "@id": "http://example.org/_h"
+                },
+                {
+                    "@id": "http://example.org/_i"
+                }
+            ],
+            "https://w3id.org/dppo/ontology/hasWhole": [
+                {
+                    "@id": "http://example.org/_a"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/dppo/ontology/DPPInformation",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                },
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                }
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+                {
+                    "@id": "https://w3id.org/dppo/ontology/DPPInformation"
+                }
+            ]
+        },
+        {
+            "@id": "http://example.org/_g",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+                },
+                {
+                    "@id": "https://w3id.org/dppo/ontology/Substance"
+                }
+            ]
+        },
+        {
+            "@id": "http://example.org/_h",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+                },
+                {
+                    "@id": "https://w3id.org/dppo/ontology/Substance"
+                }
+            ]
+        },
+        {
+            "@id": "http://example.org/_i",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+                },
+                {
+                    "@id": "https://w3id.org/glass/ontology/WindowFrame"
+                }
+            ]
+        },
+        {
+            "@id": "http://example.org/_d",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+                },
+                {
+                    "@id": "https://w3id.org/dppo/ontology/ProductCharacteristic"
+                },
+                {
+                    "@id": "http://www.w3.org/2001/XMLSchema#integer"
+                }
+            ],
+            "http://qudt.org/schema/qudt/hasQuantityKind": [
+                {
+                    "@id": "https://qudt.org/vocab/quantitykind/Thickness"
+                }
+            ],
+            "http://qudt.org/schema/qudt/unit": [
+                {
+                    "@id": "http://qudt.org/vocab/unit/MilliM"
+                }
+            ],
+            "https://w3id.org/dppo/ontology/isAbout": [
+                {
+                    "@id": "http://example.org/_h"
+                }
+            ],
+            "@value": [
+                "3"
+            ]
+        },
+        {
+            "@id": "https://qudt.org/vocab/quantitykind/Thickness",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+                },
+                {
+                    "@id": "http://qudt.org/schema/qudt/QuantityKind"
+                }
+            ]
+        },
+        {
+            "@id": "http://qudt.org/vocab/unit/MilliM",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+                },
+                {
+                    "@id": "http://qudt.org/schema/qudt/Unit"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/dppo/ontology/ProductCharacteristic",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                }
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+                {
+                    "@id": "https://w3id.org/dppo/ontology/DPPInformation"
+                }
+            ]
+        },
+        {
+            "@id": "3"
+        },
+        {
+            "@id": "http://example.org/_e",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+                },
+                {
+                    "@id": "https://w3id.org/dppo/ontology/ProductCharacteristic"
+                },
+                {
+                    "@id": "http://www.w3.org/2001/XMLSchema#integer"
+                }
+            ],
+            "http://qudt.org/schema/qudt/hasQuantityKind": [
+                {
+                    "@id": "https://qudt.org/vocab/quantitykind/Thickness"
+                }
+            ],
+            "http://qudt.org/schema/qudt/unit": [
+                {
+                    "@id": "http://qudt.org/vocab/unit/MilliM"
+                }
+            ],
+            "https://w3id.org/dppo/ontology/isAbout": [
+                {
+                    "@id": "http://example.org/_g"
+                }
+            ],
+            "@value": [
+                "2"
+            ]
+        },
+        {
+            "@id": "http://example.org/_f",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+                },
+                {
+                    "@id": "https://w3id.org/ceon/ontology/MatterComposition"
+                }
+            ],
+            "https://w3id.org/ceon/ontology/associatedWithMatter": [
+                {
+                    "@id": "http://example.org/ALU"
+                }
+            ],
+            "https://w3id.org/ceon/ontology/compositionOf": [
+                {
+                    "@id": "http://example.org/_i"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/ceon/ontology/MatterComposition",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/glass/ontology/WindowFrame",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                }
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+                {
+                    "@id": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#BuiltElement"
+                }
+            ]
+        },
+        {
+            "@id": "http://example.org/palletDPP_1",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#NamedIndividual"
+                },
+                {
+                    "@id": "https://w3id.org/dppo/ontology/DPP"
+                }
+            ],
+            "https://w3id.org/dppo/ontology/containsInformation": [
+                {
+                    "@id": "http://example.org/_c"
+                },
+                {
+                    "@id": "http://example.org/_d"
+                },
+                {
+                    "@id": "http://example.org/_e"
+                },
+                {
+                    "@id": "http://example.org/_f"
+                }
+            ],
+            "https://w3id.org/dppo/ontology/describes": [
+                {
+                    "@id": "http://example.org/_a"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/dppo/ontology/DPP",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                }
+            ]
+        },
+        {
+            "@id": "http://qudt.org/schema/qudt/QuantityKind",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                }
+            ]
+        },
+        {
+            "@id": "http://www.w3.org/2002/07/owl#Class"
+        },
+        {
+            "@id": "http://qudt.org/schema/qudt/Unit",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                }
+            ]
+        },
+        {
+            "@id": "http://qudt.org/schema/qudt/hasQuantityKind",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+                }
+            ]
+        },
+        {
+            "@id": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        },
+        {
+            "@id": "http://qudt.org/schema/qudt/unit",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+                }
+            ]
+        },
+        {
+            "@id": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#BuiltElement",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/ceon/ontology/BatchOfObjects",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#Class"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/ceon/ontology/associatedWithMatter",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/ceon/ontology/compositionOf",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/dppo/ontology/containsInformation",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/dppo/ontology/describes",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/dppo/ontology/hasPart",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/dppo/ontology/hasWhole",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/dppo/ontology/isAbout",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/dppo/ontology/value",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+                }
+            ]
+        },
+        {
+            "@id": "https://w3id.org/glass/ontology/numberOfPanes",
+            "@type": [
+                {
+                    "@id": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+                }
+            ]
+        }
+    ]
+}

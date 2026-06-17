@@ -1,0 +1,30 @@
+{
+    "concepts": {
+        "https://w3id.org/glass/ontology/Window": {
+            "target": "https://w3id.org/dppo/ontology/Product",
+            "match": "skos:closeMatch"
+        },
+        "https://w3id.org/glass/ontology/WindowGlass": {
+            "target": "https://w3id.org/dppo/ontology/Substance",
+            "match": "skos:closeMatch"
+        },
+        "https://w3id.org/ceon/ontology/Material": {
+            "target": "https://w3id.org/dppo/ontology/Substance",
+            "match": "skos:closeMatch"
+        },
+        "https://w3id.org/dppo/ontology/CompositionInformation": {
+            "target": "https://w3id.org/dppo/ontology/DPPInformation",
+            "match": "skos:broadMatch"
+        }
+    },
+    "relations": {
+        "https://w3id.org/dppo/ontology/containsInformation": {
+            "target": "https://w3id.org/dppo/ontology/containsInformation",
+            "match": "skos:exactMatch"
+        },
+        "https://w3id.org/dppo/ontology/isAbout": {
+            "target": "https://w3id.org/dppo/ontology/isAbout",
+            "match": "skos:exactMatch"
+        }
+    }
+}
