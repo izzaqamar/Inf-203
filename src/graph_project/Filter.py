@@ -1,4 +1,4 @@
-from .Graph import Graph
+# Task # 09
 
 
 class FilterByType:
