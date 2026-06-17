@@ -47,21 +47,6 @@ def main():
 
     query.query_path_forward(labels)
 
-    # Task 9: We test forward + filter
-    print("TASK: forward + filter")
-
-    labels = ["https://w3id.org/dppo/ontology/hasPart"]
-    directions = [True]
-
-    filters = [FilterByType("https://w3id.org/glass/ontology/WindowGlass")]
-    print("Query labels:", labels)
-    print("Directions:", directions)
-    print("Filter:", "WindowGlass")
-    print()
-
-    print("Results:\n")
-    query.query_path(labels, directions, filters)
-
     # TASK 9.1: We test  backward path query
 
     print("TASK 9: backward path query ")

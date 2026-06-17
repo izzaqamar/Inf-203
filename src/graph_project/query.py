@@ -2,6 +2,7 @@
 from collections import deque
 from .Filter import FilterByType, FilterByName, FilterOrphans
 
+
 class Query:
     """Performs path queries on a graph."""
 
@@ -43,7 +44,7 @@ class Query:
         return paths
 
     # Task 08 & 09: Passing function object and backward paath
-    def query_path(self, labels, directions, filters=None):
+    def query_path(self, labels, directions):
         """
         Follow a sequence of edge labels with specified directions.
         labels:      list of edge labels
@@ -67,10 +68,7 @@ class Query:
                         # If forward: last : target
                         # If backward: last : source
                         next_node = edge.target if forward else edge.source
-                        # Apply filter if provided
-                        node_passes_filters = self.apply_filters(next_node, filters)
-                        if node_passes_filters:
-                            new_paths.append(path + [next_node])
+                        new_paths.append(path + [next_node])
 
             paths = new_paths
 
@@ -81,12 +79,3 @@ class Query:
             print(f"{p[0].label}\t{p[-1].label}")
 
         return paths
-
-    # Integrating filters
-    def apply_filters(self, node, filters):
-        if filters is None:
-            return True
-        for f in filters:
-            if not f(node):
-                return False
-        return True
