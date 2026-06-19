@@ -15,10 +15,22 @@ class Query:
 
     def query_path_forward(self, labels):
         """
-        Follow a sequence of edge labels in the forward direction.
-        Example type: ["https://schema.org/superEvent", "https://schema.org/organizer"]
-        """
+        - Executes a forward-only path query by following a sequence of edge labels.
+        - Starts from all nodes in the graph.
+        - At each step, only outgoing edges are considered.
+        - Paths are extended only when an edge matches the current label.
+        - If no valid continuation exists, the result becomes empty.
 
+        Parameters
+
+        labels : list of str
+            Edge labels to follow in order, using outgoing edges only.
+
+        Returns
+
+        list[list[Node]]
+            All valid paths as lists of nodes from start to end.
+        """
         # We start with all nodes as possible x0
         paths = [[node] for node in self.graph.nodes.values()]
 
@@ -48,6 +60,10 @@ class Query:
         """
         Executes a path query over the graph following labeled edges in sequence,
         with support for both forward and backward traversal.
+        - Starts from all nodes in the graph.
+        - Each step filters and extends existing paths based on label + direction.
+        - Forward uses outgoing edges; backward uses incoming edges.
+        - Returns an empty list if no paths match at any step.
 
         Parameters
 
@@ -61,13 +77,6 @@ class Query:
 
         list[list[Node]]
             All valid paths as lists of nodes from start to end.
-
-        Notes
-
-        - Starts from all nodes in the graph.
-        - Each step filters and extends existing paths based on label + direction.
-        - Forward uses outgoing edges; backward uses incoming edges.
-        - Returns an empty list if no paths match at any step.
         """
         # Start with all nodes as possible x0
         paths = [[node] for node in self.graph.nodes.values()]
