@@ -1,11 +1,10 @@
-
 """
 Pytest for the Node class.
 """
+
 import os
 import sys
 
-# UPDATE IF MOVED FROM src/tests/pytests
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 sys.path.insert(0, BASE_DIR)
 

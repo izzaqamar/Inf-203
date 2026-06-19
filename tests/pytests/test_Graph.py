@@ -2,10 +2,10 @@
 Pytest for the Graph class
 Recycles lots of the node/edge tests
 """
+
 import os
 import sys
 
-# UPDATE IF MOVED FROM src/tests/pytests
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 sys.path.insert(0, BASE_DIR)
 
@@ -84,4 +84,3 @@ def test_graph_add_edge_appends_to_graph_edges_list():
     e = g.add_edge("connects", "A", "B")
     assert e in g.edges
     assert len(g.edges) == 1
-

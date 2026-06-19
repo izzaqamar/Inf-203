@@ -1,18 +1,18 @@
 """
 Pytest for the Filter classes
 """
+
 import os
 import sys
 
-# UPDATE IF MOVED FROM src/tests/pytests
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 sys.path.insert(0, BASE_DIR)
 
 from graph_project.Graph import Graph
 from graph_project.Filter import FilterByType, FilterByName, FilterOrphans
 
-
 # FilterByType
+
 
 def test_filterbytype_call_returns_true_for_matching_node():
     """
@@ -61,6 +61,7 @@ def test_filterbytype_apply_returns_only_matching_nodes():
 
 # FilterByName
 
+
 def test_filterbyname_call_returns_true_for_substring_match():
     """
     Calling the filter directly should return True if the search string appears anywhere inside the node's label
@@ -103,6 +104,7 @@ def test_filterbyname_apply_returns_only_matching_nodes():
 
 
 # FilterOrphans
+
 
 def test_filterorphans_call_returns_true_for_node_with_no_edges():
     """

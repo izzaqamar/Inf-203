@@ -43,14 +43,32 @@ class Query:
 
         return paths
 
-    # Task 08 & 09: Passing function object and backward paath
+    # Task  09: Backward path and Mixed path
     def query_path(self, labels, directions):
         """
-        Follow a sequence of edge labels with specified directions.
-        labels:      list of edge labels
-        directions:  list of booleans (True = forward, False = backward)
-        """
+        Executes a path query over the graph following labeled edges in sequence,
+        with support for both forward and backward traversal.
 
+        Parameters
+
+        labels : list of str
+            Edge labels to follow in order.
+        directions : list of bool
+            Direction for each label (True = outgoing/forward,
+            False = incoming/backward).
+
+        Returns
+
+        list[list[Node]]
+            All valid paths as lists of nodes from start to end.
+
+        Notes
+
+        - Starts from all nodes in the graph.
+        - Each step filters and extends existing paths based on label + direction.
+        - Forward uses outgoing edges; backward uses incoming edges.
+        - Returns an empty list if no paths match at any step.
+        """
         # Start with all nodes as possible x0
         paths = [[node] for node in self.graph.nodes.values()]
 

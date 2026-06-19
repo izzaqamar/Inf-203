@@ -1,12 +1,11 @@
-
 """
 Pytest for the Edge class
 Recycles lots of the node tests
 """
+
 import os
 import sys
 
-# UPDATE IF MOVED FROM src/tests/pytests
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 sys.path.insert(0, BASE_DIR)
 
@@ -91,4 +90,3 @@ def test_edge_rename_source_updates_edge():
     e = Edge("connects", source, target)
     source.label = "Z"
     assert repr(e) == "Edge(connects, Z -> B)"
-

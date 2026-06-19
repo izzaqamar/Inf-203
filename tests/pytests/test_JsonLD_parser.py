@@ -3,10 +3,10 @@ Pytest for the JsonLD_parser class
 
 Uses the existing file tests/linked-data-intro-context.json
 """
+
 import os
 import sys
 
-# UPDATE IF MOVED FROM src/tests/pytests
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 sys.path.insert(0, BASE_DIR)
 
@@ -38,7 +38,9 @@ def test_jsonld_parser_nested_object_in_list():
     graph = parser.load_jsonld(file_path, remove_duplicates=False)
 
     root = graph.nodes["example-abox:ISSON25"]
-    performer_targets = [e.target.label for e in root.outgoing if e.label == "schema:performer"]
+    performer_targets = [
+        e.target.label for e in root.outgoing if e.label == "schema:performer"
+    ]
 
     assert "example-abox:Halliru_Ibrahim" in performer_targets
     assert "example-abox:Argiris_Laskarakis" in performer_targets
@@ -49,7 +51,7 @@ def test_jsonld_parser_nested_object_in_list():
 def test_jsonld_parser_nested_single_object():
     """
     schema:superEvent is a single nested object (not a list)
-    Checks 
+    Checks
         1. root gets one edge (schema:superEvent)
         2. the nested object gets its own type edge (BusinessEvent)
     """
@@ -73,9 +75,9 @@ def test_jsonld_parser_nested_single_object():
 
 def test_jsonld_parser_node_the_same():
     """
-    'Argiris_Laskarakis' appears twice in the source file 
+    'Argiris_Laskarakis' appears twice in the source file
         1. A performer
-        2. The organizer of the super event 
+        2. The organizer of the super event
     The parser should treat both references as the SAME node, not create two separate nodes.
     """
     parser = JsonLD_parser()
@@ -95,7 +97,7 @@ def test_jsonld_parser_node_the_same():
 
 def test_jsonld_parser_remove_duplicates_false_keeps_all_triples():
     """
-    With remove_duplicates=False, every real triple extracted from the file should become an edge. 
+    With remove_duplicates=False, every real triple extracted from the file should become an edge.
     @context is namespace metadata (not graph data) so it is skipped and does NOT count toward this total.
     """
     parser = JsonLD_parser()
