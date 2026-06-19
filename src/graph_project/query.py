@@ -4,7 +4,9 @@ from .Filter import FilterByType, FilterByName, FilterOrphans
 
 
 class Query:
-    """Performs path queries on a graph."""
+    """
+    Performs graph queries and analysis
+    """
 
     def __init__(self, graph):
         self._graph = graph
@@ -106,3 +108,37 @@ class Query:
             print(f"{p[0].label}\t{p[-1].label}")
 
         return paths
+    
+    def shortest_path(self, start_node, end_node):
+        """
+        Args:
+            start_node (Node): The node to start the search from.
+            end_node (Node): The node to find the path to.
+
+        Returns:
+            list: A list of nodes representing the shortest path from start_node to end_node. 
+            If there is no path, returns an empty list.
+        """
+        if start_node == end_node:
+            return [start_node]
+        
+        visited = set()
+        queue = deque([(start_node, [start_node])])
+
+        # BFS algorithm to find the shortest path
+        while queue:
+            i = queue.popleft()
+            current_node = i[0]
+            path = i[1]
+
+            if current_node == end_node:
+                return path
+            if current_node not in visited:
+                visited.add(current_node)
+                for edge in current_node.outgoing:
+                    neighbor = edge.target
+                    if neighbor not in visited:
+                        queue.append((neighbor, path + [neighbor]))
+
+        # If there is no path between the start and end nodes, return an empty list
+        return []
