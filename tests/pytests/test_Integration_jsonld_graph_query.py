@@ -10,15 +10,15 @@ from graph_project.query import Query
 
 def test_integration_jsonld_to_graph_to_query_simple_path():
     """
-    Integration test: JSON-LD → Graph → Query traversal
+    Integration test: JSON-LD → Graph → Query
 
-    1. Load JSON-LD file
+    1. Load JSON-LD input file
     2. Build graph from parser
-    3. Run forward query
-    4. Verify expected relationship exists
+    3. Run forward query on graph
+    4. Validate expected relationship exists
     """
 
-    # 1. Load and parse JSON-LD into graph
+    # 1. Load JSON-LD input file
     parser = JsonLD_parser()
     graph = parser.load_jsonld(
         os.path.abspath(
@@ -27,18 +27,17 @@ def test_integration_jsonld_to_graph_to_query_simple_path():
         remove_duplicates=False
     )
 
-    # 2. Run query over constructed graph
+    # 2. Build graph from parser
     query = Query(graph)
+
+    # 3. Run forward query on graph
     paths = query.query_path_forward(["schema:superEvent"])
 
-    # 3. Extract start/end pairs
-    results = {
-        (p[0].label, p[-1].label)
-        for p in paths
-    }
+    query_results = set()
+    for path in paths:
+        start_label = path[0].label
+        end_label = path[-1].label
+        query_results.add((start_label, end_label))
 
-    # 4. Verify known expected relation exists
-    assert (
-        "example-abox:ISSON25",
-        "example-abox:NANOTEXNOLOGY_2025"
-    ) in results
+    # 4. Validate expected relationship exists
+    assert ("example-abox:ISSON25", "example-abox:NANOTEXNOLOGY_2025") in query_results
