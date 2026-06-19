@@ -1,0 +1,102 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix ceon:  <https://w3id.org/ceon/ontology/> .
+@prefix dppo:  <https://w3id.org/dppo/ontology/> .
+@prefix glass: <https://w3id.org/glass/ontology/> .
+@prefix ifc:   <https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#> .
+@prefix qudt:  <http://qudt.org/schema/qudt/> .
+@prefix quantitykind:  <https://qudt.org/vocab/quantitykind/> .
+@prefix quantityunit: <http://qudt.org/vocab/unit/> .
+@prefix ex:    <http://example.org/> .
+
+# ====================
+# Classes (14 concepts)
+# ====================
+
+ceon:MatterComposition a owl:Class .
+ceon:BatchOfObjects a owl:Class .
+
+ifc:BuiltElement a owl:Class .
+
+glass:Window a owl:Class ;
+    rdfs:subClassOf ifc:BuiltElement .
+
+glass:WindowGlass a owl:Class ;
+    rdfs:subClassOf ifc:BuiltElement .
+
+glass:WindowFrame a owl:Class ;
+    rdfs:subClassOf ifc:BuiltElement .
+
+dppo:DPP a owl:Class .
+
+dppo:Product a owl:Class .
+
+dppo:Substance a owl:Class ;
+    rdfs:subClassOf dppo:Product .
+
+dppo:DPPInformation a owl:Class .
+
+dppo:CompositionInformation a owl:Class ;
+    rdfs:subClassOf dppo:DPPInformation .
+
+dppo:ProductCharacteristic a owl:Class ;
+    rdfs:subClassOf dppo:DPPInformation .
+
+qudt:QuantityKind a owl:Class .
+
+qudt:Unit a owl:Class .
+
+# ====================
+# Instances & Relationships
+# ====================
+
+# _a: a product that is a window
+ex:_a a ceon:Item , glass:Window ;
+    glass:numberOfPanes "2"^^xsd:integer .
+
+# palletDPP_1: the Digital Product Passport
+ex:palletDPP_1 a dppo:DPP ;
+    dppo:describes ex:_a ;
+    dppo:containsInformation ex:_c , ex:_d , ex:_e , ex:_f .
+
+# _c: composition information about the window
+ex:_c a dppo:CompositionInformation ;
+    dppo:hasWhole ex:_a ;
+    dppo:hasPart ex:_g , ex:_h , ex:_i .
+
+# _g and _h: window glass parts
+ex:_g a glass:WindowGlass .
+
+ex:_h a glass:WindowGlass .
+
+# _i: window frame part
+ex:_i a glass:WindowFrame .
+
+# _e: product characteristic about _g (thickness = 2 mm)
+ex:_e a dppo:ProductCharacteristic ;
+    dppo:isAbout ex:_g ;
+    dppo:value "2"^^xsd:integer ;
+    qudt:hasQuantityKind quantitykind:Thickness ;
+    qudt:unit quantityunit:MilliM .
+
+# _d: product characteristic about _h (thickness = 3 mm)
+ex:_d a dppo:ProductCharacteristic ;
+    dppo:isAbout ex:_h ;
+    dppo:value "3"^^xsd:integer ;
+    qudt:hasQuantityKind quantitykind:Thickness ;
+    qudt:unit quantityunit:MilliM .
+
+# _f: matter composition of the frame
+ex:_f a ceon:MatterComposition ;
+    ceon:compositionOf ex:_i ;
+    ceon:associatedWithMatter ex:ALU .
+
+# ALU: a substance (aluminium)
+ex:ALU a dppo:Substance .
+
+# Quantity kind and unit instances
+quantitykind:Thickness a qudt:QuantityKind .
+
+quantityunit:MilliM a qudt:Unit .
