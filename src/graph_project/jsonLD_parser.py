@@ -65,6 +65,10 @@ class JsonLD_parser:
                     if key == "@id":
                         # we have already used this
                         continue
+                    if key == "@context":
+                        # namespace metadata, not part of the graph data
+                        # skip to prevent "false" triples
+                        continue
                     if key == "@type":
                         # @type can be a list or a single string
                         if isinstance(value, list):
