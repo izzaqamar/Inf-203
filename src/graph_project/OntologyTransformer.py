@@ -181,7 +181,9 @@ class OntologyTransformer:
             if label not in nodes_json[source]:
                 nodes_json[source][label] = []
 
-            if self._looks_like_uri(target):
+            if label == "@type":
+                value = target
+            elif target in nodes_json:
                 value = {"@id": target}
             else:
                 value = target

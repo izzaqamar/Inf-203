@@ -1,0 +1,61 @@
+{
+    "@graph": [
+        {
+            "@id": "example-abox:ISSON25",
+            "@type": [
+                "schema:EducationEvent"
+            ],
+            "schema:performer": [
+                "example-abox:Halliru_Ibrahim",
+                "example-abox:Argiris_Laskarakis",
+                "example-abox:Stratos_Saliakas"
+            ],
+            "schema:superEvent": [
+                "example-abox:NANOTEXNOLOGY_2025"
+            ]
+        },
+        {
+            "@id": "schema:EducationEvent"
+        },
+        {
+            "@id": "example-abox:Halliru_Ibrahim",
+            "@type": [
+                "schema:Person"
+            ]
+        },
+        {
+            "@id": "schema:Person"
+        },
+        {
+            "@id": "example-abox:Argiris_Laskarakis",
+            "@type": [
+                "schema:Person"
+            ]
+        },
+        {
+            "@id": "example-abox:Stratos_Saliakas",
+            "@type": [
+                "schema:Person"
+            ]
+        },
+        {
+            "@id": "example-abox:NANOTEXNOLOGY_2025",
+            "@type": [
+                "schema:BusinessEvent"
+            ],
+            "schema:organizer": [
+                "example-abox:Argiris_Laskarakis",
+                "example-abox:Stergios_Logothetidis"
+            ]
+        },
+        {
+            "@id": "schema:BusinessEvent"
+        },
+        {
+            "@id": "example-abox:Stergios_Logothetidis",
+            "@type": [
+                "schema:Person"
+            ]
+        }
+    ]
+}

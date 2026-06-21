@@ -73,12 +73,16 @@ class JsonLD_parser:
                         # @type can be a list or a single string
                         if isinstance(value, list):
                             for t in value:
+                                if isinstance(t, dict):
+                                    t = t.get("@id", t)
                                 if remove_duplicates:
                                     triples_set.add((node_id, "type", t))
                                 else:
                                     triples_list.append((node_id, "type", t))
                                     
                         else:
+                            if isinstance(value, dict):
+                                value = value.get("@id", value)
                             if remove_duplicates:
                                 triples_set.add((node_id, "type", value))
                             else:
@@ -86,9 +90,25 @@ class JsonLD_parser:
                                 
                         continue
 
+                    if key == "@graph":
+                        # since the ontologyTransformer creates a @graph outside
+                        extract(value, subject)
+                        continue
+
+                    if node_id is None:
+                        return None
+
                     # case 1.1 for values
                     if isinstance(value, dict):
                         # recursivly extracts the nested dictionary
+                        if "@value" in value:
+                            # this is a typed literal, not a linked node, so we extract the value directly
+                            literal = str(value["@value"])
+                            if remove_duplicates:
+                                triples_set.add((node_id, key, literal))
+                            else:
+                                triples_list.append((node_id, key, literal))
+                            continue
                         obj_id = value.get("@id")
                         if obj_id is not None:
                             # Check if the key is a type predicate and normalize it
@@ -110,6 +130,14 @@ class JsonLD_parser:
                         for item in value:
 
                             if isinstance(item, dict):
+                                # Fix: catch typed literals BEFORE recursing (fuck yes)
+                                if "@value" in item:
+                                    literal = str(item["@value"])
+                                    if remove_duplicates:
+                                        triples_set.add((node_id, key, literal))
+                                    else:
+                                        triples_list.append((node_id, key, literal))
+                                    continue 
                                 item_id = item.get("@id")
 
                                 if item_id is not None:
