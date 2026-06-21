@@ -1,6 +1,7 @@
 """
 Pytest for the Graph class
 Recycles lots of the node/edge tests
+User story: 4.1, 4.2, 4.3, 4.7, 2.6
 """
 
 import os

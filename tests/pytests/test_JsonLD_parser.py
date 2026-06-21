@@ -1,5 +1,6 @@
 """
 Pytest for the JsonLD_parser class
+User story: 1.2, 4.1, 4.2, 4.3, 2.6
 
 Uses the existing file tests/linked-data-intro-context.json
 """

@@ -1,5 +1,6 @@
 """
 Pytest for the OntologyTransformer class
+User story: 1.1, 1.2, 2.3
 
 Uses pytests built in tmp_path  to create alignment files and export output on the fly, so nothing is left behind on disk after the tests run.
 """

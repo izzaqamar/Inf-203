@@ -1,5 +1,6 @@
 """
 Pytest tests for the Query class.
+User story: 1.3, 1.5, 1.6, 2.5 
 """
 
 import os

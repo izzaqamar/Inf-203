@@ -1,3 +1,8 @@
+"""
+Pytest for integration
+User story: 1.3, 1.4, 1.5
+"""
+
 import os
 import sys
 

@@ -1,6 +1,8 @@
 """
 Pytest for the Edge class
 Recycles lots of the node tests
+User story: 4.2, 4.6
+
 """
 
 import os
