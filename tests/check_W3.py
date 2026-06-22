@@ -24,7 +24,9 @@ def main():
 
     # Input source graph
     source_file = os.path.abspath(
-        os.path.join(BASE_DIR, "..", "tests", "use_case_Inf203.jsonld")
+        os.path.join(
+            os.path.dirname(__file__), "..", "src", "data", "use_case_Inf203.jsonld"
+        )
     )
 
     PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))

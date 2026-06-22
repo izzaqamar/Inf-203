@@ -13,10 +13,13 @@ file_path = os.path.abspath(
 )
 
 parser = JsonLD_parser()
-json_path = os.path.join(BASE_DIR, "..", "tests", "use_case_Inf203.jsonld")
+json_path = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__), "..", "src", "data", "use_case_Inf203.jsonld"
+    )
+)
 graph = parser.load_jsonld(json_path, remove_duplicates=False)
 
 node_d = graph.nodes["http://example.org/_d"]
 for e in node_d.outgoing:
     print(e.label, "->", e.target.label)
-

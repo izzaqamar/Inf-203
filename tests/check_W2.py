@@ -18,8 +18,12 @@ def main():
     - Prints the results
     """
 
-    # Path to your JSON-LD file
-    file_path = os.path.join(os.path.dirname(__file__), "use_case_Inf203.jsonld")
+    # Path to  JSON-LD file
+    file_path = os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__), "..", "src", "data", "use_case_Inf203.jsonld"
+        )
+    )
 
     print("Loading JSON-LD file:", file_path)
 
