@@ -14,7 +14,7 @@ This project was developed as part of the INF203 course at NMBU. The objective o
 
 The project includes:
 
-* A graph implementation based on doubly linked incidence lists.
+* A graph implementation based on incidence lists.
 * Classes for Graph, Node, and Edge.
 * Import of JSON-LD files into a graph structure.
 * Transformation of ontology concepts using alignment mappings.
@@ -45,7 +45,7 @@ The project can be run using the provided Python scripts for each task. Input fi
 
 The graph structure stores nodes with unique labels and maintains incoming and outgoing edge lists for efficient traversal.
 
-The JSON-LD parser reads semantic web data and converts it into graph objects.
+The JSON-LD parser reads semantic web data and transforms it into a Graph structure consisting of nodes and edges.
 
 The ontology transformer applies mappings between ontologies and generates transformed output data according to the provided alignment definitions.
 
