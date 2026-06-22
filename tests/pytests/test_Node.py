@@ -48,9 +48,23 @@ def test_node_repr_format():
     assert repr(n) == "Node(A)"
 
 
+def test_node_outgoing_and_incoming_are_independent():
+    """
+    Each Node instance should have independent edge storage.
+    """
+    n1 = Node("A")
+    n2 = Node("B")
+
+    fake_edge = "fake_edge"
+    n1.add_outgoing_edge(fake_edge)
+
+    assert n1.outgoing == (fake_edge,)
+    assert n2.outgoing == tuple()
+
+
 def test_node_attributes_dict_is_independent():
     """
-    Each Node instance should have its own attributes dict, chechs too see if they can see each others attributes
+    Each Node instance should have its own attributes dict, checks too see if they can see each others attributes
     """
     n1 = Node("A")
     n2 = Node("B")
