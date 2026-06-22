@@ -1,5 +1,8 @@
 # Task: 03 + Task 05
 
+from copy import deepcopy
+
+
 class Edge:
     """Represents a directed edge between two nodes.
 
@@ -29,7 +32,7 @@ class Edge:
 
     @property
     def source(self):
-        return self._source
+        return deepcopy(self._source)
 
     @source.setter
     def source(self, value):
@@ -37,7 +40,7 @@ class Edge:
 
     @property
     def target(self):
-        return self._target
+        return deepcopy(self._target)
 
     @target.setter
     def target(self, value):

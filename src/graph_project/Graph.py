@@ -1,5 +1,7 @@
 # Task: 03 + Task 05 + task 06 + Task 08 + Partial Task 09
 
+from copy import deepcopy
+
 from .Node import Node
 from .Edge import Edge
 
@@ -21,11 +23,11 @@ class Graph:
 
     @property
     def nodes(self):
-        return self._nodes
+        return deepcopy(self._nodes)
 
     @property
     def edges(self):
-        return self._edges
+        return deepcopy(self._edges)
 
     def add_node(self, label):
         """Add a node to the graph if it does not already exist.
@@ -60,8 +62,8 @@ class Graph:
         edge = Edge(label, source, target)
 
         self._edges.append(edge)
-        source.outgoing.append(edge)
-        target.incoming.append(edge)
+        source.add_outgoing_edge(edge)
+        target.add_incoming_edge(edge)
 
         return edge
 

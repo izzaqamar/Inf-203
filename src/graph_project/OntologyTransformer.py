@@ -2,6 +2,7 @@
 
 import os
 import json
+from copy import deepcopy
 from graph_project.Graph import Graph
 
 
@@ -18,7 +19,7 @@ class OntologyTransformer:
     """
 
     def __init__(self):
-        self.supported_matches = [
+        self._supported_matches = [
             "skos:exactMatch",
             "skos:closeMatch",
             "skos:broadMatch",
@@ -28,6 +29,10 @@ class OntologyTransformer:
             "broadMatch",
             "narrowMatch",
         ]
+
+    @property
+    def supported_matches(self):
+        return deepcopy(self._supported_matches)
 
     def load_alignment(self, alignment_file):
         """
@@ -79,7 +84,7 @@ class OntologyTransformer:
             target_label = info.get("target")
             match_type = info.get("match")
 
-            if target_label is not None and match_type in self.supported_matches:
+            if target_label is not None and match_type in self._supported_matches:
                 alignment_map[source_label] = target_label
 
     def transform(self, source_graph, alignment_file):
