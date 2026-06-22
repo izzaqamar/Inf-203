@@ -1,0 +1,71 @@
+# Task: 03 + Task 05 + task 06 + Task 08 + Partial Task 09
+
+from copy import deepcopy
+
+from .Node import Node
+from .Edge import Edge
+
+
+class Graph:
+    """Represents a directed graph consisting of nodes and edges.
+
+    Nodes are stored in a dictionary to enforce unique labels.
+
+    Attributes
+    nodes : dict[str, Node]
+        Mapping from node labels to Node objects.
+    edges : List of all edges in the graph.
+    """
+
+    def __init__(self):
+        self._nodes = {}
+        self._edges = []
+
+    @property
+    def nodes(self):
+        return deepcopy(self._nodes)
+
+    @property
+    def edges(self):
+        return deepcopy(self._edges)
+
+    def add_node(self, label):
+        """Add a node to the graph if it does not already exist.
+
+        Parameters
+        label : Unique identifier for the node.
+
+        Returns the existing or newly created node.
+        """
+
+        if label not in self._nodes:
+            self._nodes[label] = Node(label)
+
+        return self._nodes[label]
+
+    def add_edge(self, label, source_label, target_label):
+        """Create a directed edge between two nodes.
+
+        If the source or target nodes do not exist, they are created.
+
+        Parameters
+        label : Label for the edge.
+        source_label : Label of the source node.
+        target_label : Label of the target node.
+
+        Returns the newly created edge.
+        """
+
+        source = self.add_node(source_label)
+        target = self.add_node(target_label)
+
+        edge = Edge(label, source, target)
+
+        self._edges.append(edge)
+        source.add_outgoing_edge(edge)
+        target.add_incoming_edge(edge)
+
+        return edge
+
+    def __repr__(self):
+        return f"Graph(nodes={len(self.nodes)}, edges={len(self.edges)})"
