@@ -18,7 +18,7 @@ from graph_project.Graph import Graph
 
 def test_jsonld_parser_raises_error_for_missing_file():
     """
-    Passing a non-existent file path should raise a FileNotFoundError.
+    Passing a non-existent file path should raise a FileNotFoundError
     """
     parser = JsonLD_parser()
 
@@ -28,7 +28,7 @@ def test_jsonld_parser_raises_error_for_missing_file():
 
 def test_jsonld_parser_raises_error_for_malformed_json(tmp_path):
     """
-    Passing a file with invalid JSON content should raise a json.JSONDecodeError.
+    Passing a file with invalid JSON content should raise a json.JSONDecodeError
     """
     bad_file = tmp_path / "bad.json"
     bad_file.write_text("this is not valid json {{{{")
@@ -41,7 +41,7 @@ def test_jsonld_parser_raises_error_for_malformed_json(tmp_path):
 
 def test_ontology_transformer_raises_error_for_missing_alignment_file():
     """
-    Passing a non-existent alignment file should raise a FileNotFoundError.
+    Passing a non-existent alignment file should raise a FileNotFoundError
     """
     transformer = OntologyTransformer()
     graph = Graph()

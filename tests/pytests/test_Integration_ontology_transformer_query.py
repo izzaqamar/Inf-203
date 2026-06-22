@@ -22,14 +22,14 @@ def test_integration_ontology_transformer_then_query():
     1. Build source graph
     2. Apply ontology transformation
     3. Run forward query on transformed graph
-    4. Validate transformation is reflected in query results
+    4. Check that transformation is in query_results
     """
 
     # 1. Build source graph
     source_graph = Graph()
     source_graph.add_edge("knows", "old:Person", "old:Other")
 
-    # 2. Apply ontology transformation
+    # 2. Apply ontology transformation (something made up)
     alignment_data = {
         "concepts": {
             "old:Person": {
@@ -56,7 +56,7 @@ def test_integration_ontology_transformer_then_query():
         end_label = path[-1].label
         query_results.add((start_label, end_label))
 
-    # 4. Validate transformation is reflected in query results
+    # 4. Check that transformation is in query_results
     assert ("new:Human", "old:Other") in query_results
 
     os.remove(alignment_file)

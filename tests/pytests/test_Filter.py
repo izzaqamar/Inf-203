@@ -17,7 +17,7 @@ from graph_project.Filter import FilterByType, FilterByName, FilterOrphans
 
 def test_filterbytype_call_returns_true_for_matching_node():
     """
-    Calling the filter directly on a single node should return True if that node has a type edge pointing to the matching type label
+    Calling the filter directly on a single node should return True if that node has the right type edge
     """
     graph = Graph()
     graph.add_edge("type", "Argiris", "schema:Person")
@@ -65,7 +65,7 @@ def test_filterbytype_apply_returns_only_matching_nodes():
 
 def test_filterbyname_call_returns_true_for_substring_match():
     """
-    Calling the filter directly should return True if the search string appears anywhere inside the node's label
+    Calling the filter directly should return True if the name appears anywhere in the lable
     """
     graph = Graph()
     node = graph.add_node("example-abox:Argiris_Laskarakis")
@@ -76,7 +76,7 @@ def test_filterbyname_call_returns_true_for_substring_match():
 
 def test_filterbyname_call_returns_false_when_not_found():
     """
-    Calling the filter on a node whose label does not contain the search string should return False
+    Calling the filter on a node without the name should return False
     """
     graph = Graph()
     node = graph.add_node("example-abox:Stratos_Saliakas")
@@ -87,7 +87,7 @@ def test_filterbyname_call_returns_false_when_not_found():
 
 def test_filterbyname_apply_returns_only_matching_nodes():
     """
-    apply() should return every node whose label contains the search string
+    apply() should return every node with the right name
     """
     graph = Graph()
     graph.add_node("example-abox:Argiris_Laskarakis")
@@ -120,7 +120,7 @@ def test_filterorphans_call_returns_true_for_node_with_no_edges():
 
 def test_filterorphans_call_returns_false_for_connected_node():
     """
-    A node that has at least one edge should NOT be considered an orphan
+    A node with a edge should NOT be a orphan
     """
     graph = Graph()
     graph.add_edge("connects", "A", "B")
@@ -133,7 +133,7 @@ def test_filterorphans_call_returns_false_for_connected_node():
 
 def test_filterorphans_apply_returns_only_orphan_nodes():
     """
-    apply() should return only the nodes with zero edges and skip any node that is connected to something
+    apply() should return orphans
     """
     graph = Graph()
     graph.add_edge("connects", "A", "B")

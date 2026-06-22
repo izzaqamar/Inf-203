@@ -28,7 +28,7 @@ def test_edge_creation_sets_label():
 
 def test_edge_creation_sets_source_and_target():
     """
-    A new Edge should store THE exact Node objects passed in for source/target
+    A new Edge should store THE exact Node object
     """
     source = Node("A")
     target = Node("B")
@@ -85,7 +85,7 @@ def test_edge_repr_format():
 
 def test_edge_rename_source_updates_edge():
     """
-    Creates edge, renames source node, checks if edge repr() shows new name
+    If we rename the node, does the edge update
     """
     source = Node("A")
     target = Node("B")

@@ -18,13 +18,13 @@ def test_integration_graph_filter_then_query():
     """
     Integration test: Graph → Filter → Query
 
-    1. Build graph with multiple node types
-    2. Apply filter independently from query system
-    3. Run forward query over full graph
+    1. Build graph
+    2. Apply filter
+    3. Run forward query
     4. Validate filter results against query results
     """
 
-    # 1. Build graph with multiple node types
+    # 1. Build graph
     graph = Graph()
     graph.add_edge("type", "A", "schema:Person")
     graph.add_edge("type", "B", "schema:Person")
@@ -32,7 +32,7 @@ def test_integration_graph_filter_then_query():
 
     query = Query(graph)
 
-    # 2. Apply filter independently from query system
+    # 2. Apply filter
     person_filter = FilterByType("schema:Person")
     filtered_nodes = person_filter.apply(graph)
 
@@ -40,7 +40,7 @@ def test_integration_graph_filter_then_query():
     for node in filtered_nodes:
         filtered_labels.add(node.label)
 
-    # 3. Run forward query over full graph
+    # 3. Run forward query
     paths = query.query_path_forward(["type"])
 
     query_results = set()

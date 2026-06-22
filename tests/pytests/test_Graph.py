@@ -24,7 +24,7 @@ def test_graph_start_empty():
 
 def test_graph_add_node_creates_node():
     """
-    add_node should create a Node with the given label and store it in graph.nodes
+    add_node should should store node in graph.nodes
     """
     g = Graph()
     n = g.add_node("A")
@@ -34,8 +34,7 @@ def test_graph_add_node_creates_node():
 
 def test_graph_add_node_no_duplicates():
     """
-    Calling add_node twice with the same label should return the same Node,
-    not create a second one
+    Calling add_node twice with the same label should return the same Node, not create a second one
     """
     g = Graph()
     n1 = g.add_node("A")
@@ -67,7 +66,7 @@ def test_graph_add_edge_creates_missing_nodes():
 
 def test_graph_add_edge_updates_node_outgoing_incoming():
     """
-    After add_edge, the edge should appear in source.outgoing and target.incoming
+    After add_edge, check that outgoing/incoming is updated
     """
     g = Graph()
     e = g.add_edge("connects", "A", "B")

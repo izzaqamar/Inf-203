@@ -21,7 +21,7 @@ file_path = os.path.abspath(
 
 def test_jsonld_parser_root_gets_type_edge():
     """
-    The root node (ISSON25) should get a 'type' edge to schema:EducationEvent
+    The root node (ISSON25) should get a "type" edge to schema:EducationEvent
     """
     parser = JsonLD_parser()
     graph = parser.load_jsonld(file_path, remove_duplicates=False)
@@ -76,10 +76,10 @@ def test_jsonld_parser_nested_single_object():
 
 def test_jsonld_parser_node_the_same():
     """
-    'Argiris_Laskarakis' appears twice in the source file
+    "Argiris_Laskarakis" is twice in the source file
         1. A performer
         2. The organizer of the super event
-    The parser should treat both references as the SAME node, not create two separate nodes.
+    The parser should treat both references as the SAME node, not create two separate nodes
     """
     parser = JsonLD_parser()
     graph = parser.load_jsonld(file_path, remove_duplicates=False)
@@ -98,8 +98,8 @@ def test_jsonld_parser_node_the_same():
 
 def test_jsonld_parser_remove_duplicates_false_keeps_all_triples():
     """
-    With remove_duplicates=False, every real triple extracted from the file should become an edge.
-    @context is namespace metadata (not graph data) so it is skipped and does NOT count toward this total.
+    With remove_duplicates=False, every real triple extracted from the file should become an edge
+    @context is namespace metadata (not graph data) so it is skipped and does NOT count toward this total
     """
     parser = JsonLD_parser()
     graph = parser.load_jsonld(file_path, remove_duplicates=False)
@@ -111,8 +111,7 @@ def test_jsonld_parser_remove_duplicates_false_keeps_all_triples():
 
 def test_jsonld_parser_context_is_not_added_to_graph():
     """
-    @context should be skipped entirely: it must not appear as an edge label,
-    and the namespace prefix values (the URIs) must not appear as node labels.
+    @context should be skipped entirely and the namespace prefix values (the URIs) should not appear as labels.
     """
     parser = JsonLD_parser()
     graph = parser.load_jsonld(file_path, remove_duplicates=False)

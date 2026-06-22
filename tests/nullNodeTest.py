@@ -6,7 +6,7 @@ Solution: @graph as a wrapper when the transformer creates a json
 
 Error below:
 
-# 5. Validate the re-parsed graph matches the transformed graph
+# 5. Validate so that the re-parsed graph matches the transformed graph
 >       assert None not in reparsed_graph.nodes
 E       AssertionError: assert None not in {None: Node(None), 'example-abox:ISSON25': Node(example-abox:ISSON25), 'schema:EducationEvent': Node(schema:EducationEvent), 'example-abox:Halliru_Ibrahim': Node(example-abox:Halliru_Ibrahim), ...}
 E        +  where {None: Node(None), 'example-abox:ISSON25': Node(example-abox:ISSON25), 'schema:EducationEvent': Node(schema:EducationEvent), 'example-abox:Halliru_Ibrahim': Node(example-abox:Halliru_Ibrahim), ...} = Graph(nodes=10, edges=21).nodes
@@ -20,10 +20,10 @@ import sys
 import os
 import json
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SRC_DIR = os.path.join(BASE_DIR, "src")
 DATA_PATH = os.path.join(BASE_DIR, "tests", "linked-data-intro-context.json")
-OUTPUT_PATH = os.path.join(BASE_DIR, "tests", "pytests", "debug_output.jsonld")
+OUTPUT_PATH = os.path.join(BASE_DIR, "tests", "debug_output.jsonld")
 
 sys.path.insert(0, SRC_DIR)
 

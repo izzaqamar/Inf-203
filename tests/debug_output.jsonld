@@ -6,12 +6,20 @@
                 "schema:EducationEvent"
             ],
             "schema:performer": [
-                "example-abox:Halliru_Ibrahim",
-                "example-abox:Argiris_Laskarakis",
-                "example-abox:Stratos_Saliakas"
+                {
+                    "@id": "example-abox:Halliru_Ibrahim"
+                },
+                {
+                    "@id": "example-abox:Argiris_Laskarakis"
+                },
+                {
+                    "@id": "example-abox:Stratos_Saliakas"
+                }
             ],
             "schema:superEvent": [
-                "example-abox:NANOTEXNOLOGY_2025"
+                {
+                    "@id": "example-abox:NANOTEXNOLOGY_2025"
+                }
             ]
         },
         {
@@ -44,8 +52,12 @@
                 "schema:BusinessEvent"
             ],
             "schema:organizer": [
-                "example-abox:Argiris_Laskarakis",
-                "example-abox:Stergios_Logothetidis"
+                {
+                    "@id": "example-abox:Argiris_Laskarakis"
+                },
+                {
+                    "@id": "example-abox:Stergios_Logothetidis"
+                }
             ]
         },
         {

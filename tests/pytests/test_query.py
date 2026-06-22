@@ -15,7 +15,7 @@ from graph_project.query import Query
 
 def test_query_creation_stores_graph():
     """
-    Query should store reference to graph.
+    Query should store reference to graph
     """
     g = Graph()
     q = Query(g)
@@ -25,7 +25,7 @@ def test_query_creation_stores_graph():
 
 def test_query_forward_simple_path():
     """
-    Forward path traversal.
+    Forward path traversal
 
     Graph:
         A -connects-> B -connects-> C
@@ -69,7 +69,7 @@ def test_query_forward_no_match():
 
 def test_query_backward_single_step():
     """
-    Backward traversal.
+    Backward traversal
 
     Graph:
         A -connects-> B
@@ -97,7 +97,7 @@ def test_query_backward_single_step():
 
 def test_query_mixed_direction_path():
     """
-    Mixed traversal.
+    Mixed traversal
 
     Graph:
         A -connects-> B
@@ -110,7 +110,7 @@ def test_query_mixed_direction_path():
         relates (forward)
 
     Expected:
-        No valid path, because A has no outgoing 'links' edge.
+        No valid path (because A has no outgoing "links" edge.)
     """
     g = Graph()
 
@@ -127,7 +127,7 @@ def test_query_mixed_direction_path():
 
 def test_query_multiple_results():
     """
-    Multiple valid paths.
+    Multiple valid paths
 
     Graph:
         A -connects-> B
@@ -175,7 +175,7 @@ def test_shortest_path_returns_path_between_connected_nodes():
 
 def test_shortest_path_returns_single_node_when_start_equals_end():
     """
-    shortest_path() should return a list containing only the start node when start and end are identical
+    shortest_path() should return a list containing only the start node (when start and end are identical)
     """
     graph = Graph()
     graph.add_node("A")
@@ -190,7 +190,7 @@ def test_shortest_path_returns_single_node_when_start_equals_end():
 
 def test_shortest_path_returns_empty_list_when_no_path_exists():
     """
-    shortest_path() should return an empty list when no path exists between the nodes
+    shortest_path() should return an empty list when no path exists
     """
     graph = Graph()
 
@@ -206,7 +206,7 @@ def test_shortest_path_returns_empty_list_when_no_path_exists():
 
 def test_shortest_path_returns_one_of_the_shortest_routes():
     """
-    shortest_path() should return a shortest path when multiple valid routes exist
+    shortest_path() should return a shortest path when there is multiple routes
     """
     graph = Graph()
 

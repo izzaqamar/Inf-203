@@ -22,7 +22,7 @@ def test_node_creation_sets_label():
 
 def test_node_creation_initializes_empty_collections():
     """
-    A new Node should start with empty outgoing/incoming edge lists and attributes.
+    A new Node should start with empty outgoing/incoming edge lists and attributes
     """
     n = Node("A")
     assert n.outgoing == []
@@ -32,7 +32,7 @@ def test_node_creation_initializes_empty_collections():
 
 def test_node_label_setter_updates_label():
     """
-    The label property should be settable after creation.
+    The label property should be settable after creation
     """
     n = Node("A")
     n.label = "B"
@@ -41,7 +41,7 @@ def test_node_label_setter_updates_label():
 
 def test_node_repr_format():
     """
-    __repr__ should follow the 'Node(<label>)' format.
+    __repr__ should follow the Node(<label>) format
     """
     n = Node("A")
     assert repr(n) == "Node(A)"
@@ -59,8 +59,7 @@ def test_node_outgoing_and_incoming_are_independent():
 
 def test_node_attributes_dict_is_independent():
     """
-    Each Node instance should have its own attributes dict
-    (Chechs too see if they can see each others attributes)
+    Each Node instance should have its own attributes dict, chechs too see if they can see each others attributes
     """
     n1 = Node("A")
     n2 = Node("B")
