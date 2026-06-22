@@ -5,7 +5,6 @@ import json
 from copy import deepcopy
 from graph_project.Graph import Graph
 
-
 class OntologyTransformer:
     """
     Transforms a source knowledge graph into a target graph
