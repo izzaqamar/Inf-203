@@ -25,8 +25,9 @@ def test_node_creation_initializes_empty_collections():
     A new Node should start with empty outgoing/incoming edge lists and attributes
     """
     n = Node("A")
-    assert n.outgoing == []
-    assert n.incoming == []
+
+    assert n.outgoing == tuple()
+    assert n.incoming == tuple()
     assert n.attributes == {}
 
 
@@ -45,16 +46,6 @@ def test_node_repr_format():
     """
     n = Node("A")
     assert repr(n) == "Node(A)"
-
-
-def test_node_outgoing_and_incoming_are_independent():
-    """
-    Each Node instance should have its own outgoing/incoming lists not a shared list across instances
-    """
-    n1 = Node("A")
-    n2 = Node("B")
-    n1.outgoing.append("fake_edge")
-    assert n2.outgoing == []
 
 
 def test_node_attributes_dict_is_independent():

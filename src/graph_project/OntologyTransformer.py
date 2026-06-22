@@ -2,8 +2,8 @@
 
 import os
 import json
-from copy import deepcopy
 from graph_project.Graph import Graph
+
 
 class OntologyTransformer:
     """
@@ -31,7 +31,7 @@ class OntologyTransformer:
 
     @property
     def supported_matches(self):
-        return deepcopy(self._supported_matches)
+        return tuple(self._supported_matches)
 
     def load_alignment(self, alignment_file):
         """

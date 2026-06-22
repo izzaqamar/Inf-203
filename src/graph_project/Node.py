@@ -1,7 +1,5 @@
 # Task: 03 + Task 05
 
-from copy import deepcopy
-
 
 class Node:
     """Represents a node (vertex) in a directed graph.
@@ -32,15 +30,15 @@ class Node:
 
     @property
     def outgoing(self):
-        return deepcopy(self._outgoing)
+        return tuple(self._outgoing)
 
     @property
     def incoming(self):
-        return deepcopy(self._incoming)
+        return tuple(self._incoming)
 
     @property
     def attributes(self):
-        return deepcopy(self._attributes)
+        return self._attributes.copy()
 
     def add_outgoing_edge(self, edge):
         self._outgoing.append(edge)
