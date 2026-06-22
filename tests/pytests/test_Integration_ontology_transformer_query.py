@@ -12,7 +12,7 @@ sys.path.insert(0, BASE_DIR)
 
 from graph_project.Graph import Graph
 from graph_project.OntologyTransformer import OntologyTransformer
-from graph_project.query import Query
+from graph_project.Query import Query
 
 
 def test_integration_ontology_transformer_then_query():

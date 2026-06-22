@@ -5,7 +5,7 @@ import json
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
 sys.path.insert(0, BASE_DIR)
 
-from graph_project.jsonLD_parser import JsonLD_parser
+from graph_project.JsonLD_parser import JsonLD_parser
 from graph_project.OntologyTransformer import OntologyTransformer
 
 file_path = os.path.abspath(

@@ -9,8 +9,8 @@ import sys
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 sys.path.insert(0, BASE_DIR)
 
-from graph_project.jsonLD_parser import JsonLD_parser
-from graph_project.query import Query
+from graph_project.JsonLD_parser import JsonLD_parser
+from graph_project.Query import Query
 
 
 def test_integration_jsonld_to_graph_to_query_simple_path():

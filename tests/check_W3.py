@@ -6,7 +6,7 @@ SRC_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "src"))
 
 sys.path.insert(0, SRC_DIR)
 
-from graph_project.jsonLD_parser import JsonLD_parser
+from graph_project.JsonLD_parser import JsonLD_parser
 from graph_project.OntologyTransformer import OntologyTransformer
 
 

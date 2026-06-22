@@ -27,7 +27,7 @@ OUTPUT_PATH = os.path.join(BASE_DIR, "tests", "debug_output.jsonld")
 
 sys.path.insert(0, SRC_DIR)
 
-from graph_project.jsonLD_parser import JsonLD_parser
+from graph_project.JsonLD_parser import JsonLD_parser
 from graph_project.OntologyTransformer import OntologyTransformer
 
 parser = JsonLD_parser()
